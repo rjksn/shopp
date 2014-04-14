@@ -56,7 +56,7 @@ class ShoppCatalog {
 	 * @since 1.0
 	 * @version 1.1
 	 *
-	 * @param string $method Add smart categories 'before' the list of the loaded categores or 'after' (defaults after)
+	 * @param $method Add smart categories 'before' the list of the loaded categores or 'after' (defaults after)
 	 * @return void
 	 **/
 	public function collections ( $method = 'after' ) {
@@ -104,11 +104,11 @@ class ShoppCatalog {
 	 * @since 1.0
 	 * @version 1.1
 	 *
-	 * @param string|int $category The identifying element of a category (by id/slug or uri)
+	 * @param string|$category The identifying element of a category (by id/slug or uri)
 	 * @param array $options (optional) Any shopp() tag-compatible options to pass on to smart categories
 	 * @return object The loaded Category object
 	 **/
-	static function load_collection ( string $slug, array $options = array() ) {
+	static function load_collection ( $slug, array $options = array() ) {
 		$Shopp = Shopp::object();
 
 		foreach ( (array)$Shopp->Collections as $Collection ) {

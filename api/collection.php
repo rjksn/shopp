@@ -19,7 +19,7 @@ defined( 'WPINC' ) || header( 'HTTP/1.1 403' ) & exit; // Prevent direct access
  * @author Jonathan Davis
  * @since 1.2
  *
- * @param string $name Class name of the smart collection
+ * @param $name Class name of the smart collection
  * @return void
  **/
 function shopp_register_collection ( $name = '' ) {
@@ -69,7 +69,7 @@ function shopp_register_collection ( $name = '' ) {
  * @author Jonathan Davis
  * @since 1.2
  *
- * @param string $taxonomy The taxonomy name
+ * @param $taxonomy The taxonomy name
  * @param array $args register_taxonomy arguments
  * @return void
  **/
@@ -90,9 +90,9 @@ function shopp_register_taxonomy ( $taxonomy, $args = array() ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param string $name (required) The category name.
- * @param string $description (optional) The category description.
- * @param int $parent (optional) Parent category id.
+ * @param $name (required) The category name.
+ * @param $description (optional) The category description.
+ * @param $parent (optional) Parent category id.
  * @return bool|int false on error, int category id on success.
  **/
 function shopp_add_product_category ( $name = '', $description = '', $parent = false ) {
@@ -127,7 +127,7 @@ function shopp_add_product_category ( $name = '', $description = '', $parent = f
  * @author John Dillick
  * @since 1.2
  *
- * @param int $cat the category id
+ * @param $cat the category id
  * @param array $options (optional) loading options
  * @return bool|ProductCategory returns false on error, ProductCategory on success
  **/
@@ -156,7 +156,7 @@ function shopp_product_category ( $cat = false, $options = array() ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $id (required) The category id
+ * @param $id (required) The category id
  * @return bool true on success, false on failure
  **/
 function shopp_rmv_product_category ( $id = false ) {
@@ -202,7 +202,7 @@ function shopp_product_tag ( $tag = false, $options = array() ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param string $tag (required) The tag term to add.
+ * @param $tag (required) The tag term to add.
  * @return bool/int - The tag id, false on failure
  **/
 function shopp_add_product_tag ( $tag = '' ) {
@@ -248,9 +248,9 @@ function shopp_rmv_product_tag ( $tag = '' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param string $term (required) the new term name.
- * @param string $taxonomy (optional default:shopp_category) The taxonomy name.  The taxonomy specified must be of the Shopp product object type.
- * @param int $parent (option default:0) the parent term id.
+ * @param $term (required) the new term name.
+ * @param $taxonomy (optional default:shopp_category) The taxonomy name.  The taxonomy specified must be of the Shopp product object type.
+ * @param $parent (option default:0) the parent term id.
  * @return int|bool term id on success, false on failure
  **/
 function shopp_add_product_term ( $term = '', $taxonomy = 'shopp_category', $parent = false ) {
@@ -287,8 +287,8 @@ function shopp_add_product_term ( $term = '', $taxonomy = 'shopp_category', $par
  * @author John Dillick
  * @since 1.2
  *
- * @param int $term the term id
- * @param string $taxonomy (optional default:shopp_category) the taxonomy name
+ * @param $term the term id
+ * @param $taxonomy (optional default:shopp_category) the taxonomy name
  * @param array $options (optional) loading options
  * @return bool|ProductTaxonomy returns false on error, ProductTaxonomy object on success
  **/
@@ -324,8 +324,8 @@ function shopp_product_term ( $term = false, $taxonomy = 'shopp_category', $opti
  * @author John Dillick
  * @since 1.2
  *
- * @param int $term (required) The term id
- * @param string $taxonomy (optional default=shopp_category) The taxonomy name the term belongs to.  The taxonomy specified must be of the Shopp product object type.
+ * @param $term (required) The term id
+ * @param $taxonomy (optional default=shopp_category) The taxonomy name the term belongs to.  The taxonomy specified must be of the Shopp product object type.
  * @return bool true on success, false on failure
  **/
 function shopp_rmv_product_term ( $term = '', $taxonomy = 'shopp_category' ) {
@@ -431,7 +431,7 @@ function shopp_product_tags ( $args = array() ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $category id of the category you wish to get subcategories for
+ * @param $category id of the category you wish to get subcategories for
  * @return array ProductCategory objects
  **/
 function shopp_subcategories ( $category = 0, $args = array() ) {
@@ -447,7 +447,7 @@ function shopp_subcategories ( $category = 0, $args = array() ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $category (required) The category id
+ * @param $category (required) The category id
  * @param array $options loading options
  * @return array Product objects
  **/
@@ -475,7 +475,7 @@ function shopp_category_products ( $category = 0, $options = array() ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int|string $tag (required) The product tag name/id
+ * @param int|$tag (required) The product tag name/id
  * @param array $options loading options
  * @return array Product objects
  **/
@@ -504,8 +504,8 @@ function shopp_tag_products ( $tag = false, $options = array() ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $term (required) The term id
- * @param string $taxonomy The taxonomy name
+ * @param $term (required) The term id
+ * @param $taxonomy The taxonomy name
  * @param array $options loading options
  * @return array Product objects
  **/
@@ -542,7 +542,7 @@ function shopp_term_products ( $term = false, $taxonomy = 'shopp_category', $opt
  * @author John Dillick
  * @since 1.2
  *
- * @param string $status (optional default:publish) the product's publish status
+ * @param $status (optional default:publish) the product's publish status
  * @return int number of products
  **/
 function shopp_catalog_count ( $status = 'publish' ) {
@@ -566,7 +566,7 @@ function shopp_catalog_count ( $status = 'publish' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $category (required) the category id
+ * @param $category (required) the category id
  * @param bool $children (optional default:false) include the children in the count
  * @return int number of products in the category
  **/
@@ -589,7 +589,7 @@ function shopp_category_count (	$category = 0, $children = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $category (required) the category id
+ * @param $category (required) the category id
  * @return int count of subcategories
  **/
 function shopp_subcategory_count ( $category = 0 ) {
@@ -609,7 +609,7 @@ function shopp_subcategory_count ( $category = 0 ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) the product id
+ * @param $product (required) the product id
  * @return int count of categories
  **/
 function shopp_product_categories_count ( $product ) {

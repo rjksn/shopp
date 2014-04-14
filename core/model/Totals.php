@@ -59,11 +59,11 @@ class OrderTotals extends ListFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $register The register to find the entry in
-	 * @param string $id The entry identifier
+	 * @param $register The register to find the entry in
+	 * @param $id The entry identifier
 	 * @return OrderAmount The order amount entry
 	 **/
-	public function &entry ( string $register, string $id = null ) {
+	public function &entry ( $register, $id = null ) {
 		$false = false;
 		if ( ! isset($this->register[ $register ]) ) return $false;
 		$Register = &$this->register[ $register ];
@@ -81,11 +81,11 @@ class OrderTotals extends ListFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $register The register to find the entry in
-	 * @param string $id The entry identifier
+	 * @param $register The register to find the entry in
+	 * @param $id The entry identifier
 	 * @return boolean True if succesful, false otherwise
 	 **/
-	public function takeoff ( string $register, string $id ) {
+	public function takeoff ( $register, $id ) {
 
 		if ( ! isset($this->register[ $register ]) ) return false;
 		$Register = &$this->register[ $register ];
@@ -102,10 +102,10 @@ class OrderTotals extends ListFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $register The register to find the entry in
+	 * @param $register The register to find the entry in
 	 * @return boolean True if successful
 	 **/
-	public function reset ( string $register ) {
+	public function reset ( $register ) {
 
 		if ( ! isset($this->register[ $register ]) ) return false;
 		$Register = &$this->register[ $register ];
@@ -120,12 +120,12 @@ class OrderTotals extends ListFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $register The name of the register to update
+	 * @param $register The name of the register to update
 	 * @param array $entry An associative array with an id and amount: array('id' => 1, 'amount' => 10.00)
 	 * @param float $amount The amount to change
 	 * @return boolean True for success, false otherwise
 	 **/
-	public function update ( string $register, $entry ) {
+	public function update ( $register, $entry ) {
 		if ( ! isset($this->register[ $register ]) ) return false;
 
 		$Register = &$this->register[ $register ];
@@ -152,7 +152,7 @@ class OrderTotals extends ListFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $register The register to calculate/get totals for
+	 * @param $register The register to calculate/get totals for
 	 * @return mixed Returns the total amount as a float, or boolean false if the register doesn't exist
 	 **/
 	public function total ( $register = self::TOTAL ) {
@@ -206,10 +206,10 @@ class OrderTotals extends ListFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $register The name of the register to check
+	 * @param $register The name of the register to check
 	 * @return boolean True when the register has changed
 	 **/
-	public function haschanged ( string $register ) {
+	public function haschanged ( $register ) {
 		$check = isset($this->checks[ $register ]) ? $this->checks[$register] : 0;
 		$this->checks[$register] = hash('crc32b', serialize($this->register[$register]) );
 		if ( 0 == $check ) return true;
@@ -267,10 +267,10 @@ class OrderTotalRegisters {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $class The name of the register amount handling class
+	 * @param $class The name of the register amount handling class
 	 * @return void
 	 **/
- 	static public function register ( string $class ) {
+ 	static public function register ( $class ) {
 		$register = get_class_property($class, 'register');
  		self::$handlers[ $register ] = $class;
  	}
@@ -281,10 +281,10 @@ class OrderTotalRegisters {
 	 * @author Jonathan Davis
 	 * @since
 	 *
-	 * @param string $register The register name
+	 * @param $register The register name
 	 * @return string The class name of the handler
 	 **/
- 	static private function handler ( string $register ) {
+ 	static private function handler ( $register ) {
  		if ( isset(self::$handlers[ $register ]) )
  			return self::$handlers[ $register ];
 		return false;
@@ -296,11 +296,11 @@ class OrderTotalRegisters {
 	 * @author Jonathan Davis
 	 * @since
 	 *
-	 * @param string $register The register to add an amount
+	 * @param $register The register to add an amount
 	 * @param array $message The amount options
 	 * @return OrderTotalAmount An constructed OrderTotalAmount object
 	 **/
- 	static public function add ( OrderTotals $Totals, string $register, array $options = array() ) {
+ 	static public function add ( OrderTotals $Totals, $register, array $options = array() ) {
 		$RegisterClass = self::handler($register);
 
  		if ( false === $RegisterClass )
@@ -699,7 +699,7 @@ class OrderAmountItemTax extends OrderAmountTax {
 	protected $items = array(); // Store the item tax amounts
 	protected $label = '';
 
-	public function __construct ( ShoppItemTax &$Tax, string $itemid ) {
+	public function __construct ( ShoppItemTax &$Tax, $itemid ) {
 
 		$this->items[ $itemid ] = &$Tax->total;
 		$this->label = &$Tax->label;
@@ -708,7 +708,7 @@ class OrderAmountItemTax extends OrderAmountTax {
 		$this->amount = $this->total();
 	}
 
-	public function unapply ( string $itemid ) {
+	public function unapply ( $itemid ) {
 		if ( isset($this->items[ $itemid ]) );
 			unset($this->items[ $itemid ]);
 

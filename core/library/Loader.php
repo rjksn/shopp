@@ -29,7 +29,7 @@ class ShoppLoader {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $path The base path for this loader to use
+	 * @param $path The base path for this loader to use
 	 * @return void
 	 **/
 	private function __construct () {
@@ -58,7 +58,7 @@ class ShoppLoader {
 	 * @since 1.3
 	 *
 	 * @param array $new Associative array with class names as keys and file paths as values
-	 * @param string $basepath The base path to use (if any). Use '' to use full paths, '.' to use paths relative to the base path of the loader instance, or pass a directory path to use as the base path
+	 * @param $basepath The base path to use (if any). Use '' to use full paths, '.' to use paths relative to the base path of the loader instance, or pass a directory path to use as the base path
 	 * @return boolean True if successful
 	 **/
 	public static function map ( $new = array(), $basepath = '.' ) {
@@ -79,8 +79,8 @@ class ShoppLoader {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $classname The name of the class to add
-	 * @param string $filepath The full path to the file, or begin path with . to use the base path of the loader instance
+	 * @param $classname The name of the class to add
+	 * @param $filepath The full path to the file, or begin path with . to use the base path of the loader instance
 	 * @return boolean True if successful
 	 **/
 	public static function add ( $classname, $filepath ) {
@@ -99,7 +99,7 @@ class ShoppLoader {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $class The name of the class to load
+	 * @param $class The name of the class to load
 	 * @return boolean True if successful, false otherwise
 	 **/
 	public function load ( $class ) {
@@ -119,7 +119,7 @@ class ShoppLoader {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $class The name of the class to load
+	 * @param $class The name of the class to load
 	 * @return boolean True if successful, false otherwise
 	 **/
 	protected function classmap ( $class ) {
@@ -141,8 +141,8 @@ class ShoppLoader {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $class The name of the class to load
-	 * @param string $path (optional) The path to scan. Uses the basepath of the loader by default.
+	 * @param $class The name of the class to load
+	 * @param $path (optional) The path to scan. Uses the basepath of the loader by default.
 	 * @return boolean True if succesful, false otherwise
 	 **/
 	protected function scanner ( $class, $path = '' ) {
@@ -164,7 +164,7 @@ class ShoppLoader {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $filename The full path to the file to scan
+	 * @param $filename The full path to the file to scan
 	 * @return boolean True if successful, false otherwise
 	 **/
 	protected function scanfile ( $filename ) {

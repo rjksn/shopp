@@ -25,8 +25,8 @@ defined( 'WPINC' ) || header( 'HTTP/1.1 403' ) & exit; // Prevent direct access
  * @param mixed $to (optional) mktime or SQL datetime, get purchased before this date/time.
  * @param bool $items (optional default:true) load purchased items into the records, slightly slower operation
  * @param array $customers (optional) list of int customer ids to limit the purchases to.  All customers by default.
- * @param int $limit (optional default:false) maximimum number of results to get, false for no limit
- * @param string $order (optional default:DESC) DESC or ASC, for sorting in ascending or descending order.
+ * @param $limit (optional default:false) maximimum number of results to get, false for no limit
+ * @param $order (optional default:DESC) DESC or ASC, for sorting in ascending or descending order.
  * @return array of Purchase objects
  **/
 function shopp_orders ( $from = false, $to = false, $items = true, $customers = array(), $limit = false, $order = 'DESC' ) {
@@ -121,7 +121,7 @@ function shopp_order_count ( $from = false, $to = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $customer (required) the customer id to load the orders for
+ * @param $customer (required) the customer id to load the orders for
  * @param mixed $from (optional) mktime or SQL datetime, get purchases after this date/time.
  * @param mixed $to (optional) mktime or SQL datetime, get purchased before this date/time.
  * @param bool $items (optional default:true) load purchased items into the records, slightly slower operation
@@ -147,8 +147,8 @@ function shopp_customer_orders ( $customer = false, $from = false, $to = false, 
  * @author John Dillick
  * @since 1.2
  *
- * @param int $time number of time units (period) to go back
- * @param string $period the time period, can be days, weeks, months, years.
+ * @param $time number of time units (period) to go back
+ * @param $period the time period, can be days, weeks, months, years.
  * @return array of Purchase objects
  **/
 function shopp_recent_orders ($time = 1, $period = 'day') {
@@ -172,9 +172,9 @@ function shopp_recent_orders ($time = 1, $period = 'day') {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $customer (required) the customer id to load the orders for
- * @param int $time number of time units (period) to go back
- * @param string $period the time period, can be days, weeks, months, years.
+ * @param $customer (required) the customer id to load the orders for
+ * @param $time number of time units (period) to go back
+ * @param $period the time period, can be days, weeks, months, years.
  * @return array of Purchase objects
  **/
 function shopp_recent_customer_orders ($customer = false, $time = 1, $period = 'day') {
@@ -218,7 +218,7 @@ function shopp_last_order () {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $customer (required) the customer id to load the order for
+ * @param $customer (required) the customer id to load the order for
  * @return ShoppPurchase object or false on failure
  **/
 function shopp_last_customer_order ( $customer = false ) {
@@ -238,8 +238,8 @@ function shopp_last_customer_order ( $customer = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $id the order id, or the transaction id
- * @param string $by (optional default:id) lookup by 'id', or 'trans'
+ * @param $id the order id, or the transaction id
+ * @param $by (optional default:id) lookup by 'id', or 'trans'
  * @return ShoppPurchase or false on failure
  **/
 function shopp_order ( $id = false, $by = 'id' ) {
@@ -261,8 +261,8 @@ function shopp_order ( $id = false, $by = 'id' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $id the order id or txn id
- * @param string $by (optional default:id) lookup by 'id', or 'trans'
+ * @param $id the order id or txn id
+ * @param $by (optional default:id) lookup by 'id', or 'trans'
  * @return float|bool float amount balance on the order, bool false if order does not exist
  **/
 function shopp_order_amt_balance ( $id = false, $by = 'id' ) {
@@ -279,8 +279,8 @@ function shopp_order_amt_balance ( $id = false, $by = 'id' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $id the order id or txn id
- * @param string $by (optional default:id) lookup by 'id', or 'trans'
+ * @param $id the order id or txn id
+ * @param $by (optional default:id) lookup by 'id', or 'trans'
  * @return float|bool float amount invoiced on the order, bool false if order does not exist
  **/
 function shopp_order_amt_invoiced ( $id = false, $by = 'id' ) {
@@ -297,8 +297,8 @@ function shopp_order_amt_invoiced ( $id = false, $by = 'id' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $id the order id or txn id
- * @param string $by (optional default:id) lookup by 'id', or 'trans'
+ * @param $id the order id or txn id
+ * @param $by (optional default:id) lookup by 'id', or 'trans'
  * @return float|bool float amount authorized on the order, bool false if order does not exist
  **/
 function shopp_order_amt_authorized ( $id = false, $by = 'id' ) {
@@ -315,8 +315,8 @@ function shopp_order_amt_authorized ( $id = false, $by = 'id' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $id the order id or txn id
- * @param string $by (optional default:id) lookup by 'id', or 'trans'
+ * @param $id the order id or txn id
+ * @param $by (optional default:id) lookup by 'id', or 'trans'
  * @return float|bool float amount captured on the order, bool false if order does not exist
  **/
 function shopp_order_amt_captured ( $id = false, $by = 'id' ) {
@@ -333,8 +333,8 @@ function shopp_order_amt_captured ( $id = false, $by = 'id' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $id the order id or txn id
- * @param string $by (optional default:id) lookup by 'id', or 'trans'
+ * @param $id the order id or txn id
+ * @param $by (optional default:id) lookup by 'id', or 'trans'
  * @return float|bool float amount refunded on the order, bool false if order does not exist
  **/
 function shopp_order_amt_refunded ( $id = false, $by = 'id' ) {
@@ -351,8 +351,8 @@ function shopp_order_amt_refunded ( $id = false, $by = 'id' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $id the order id or txn id
- * @param string $by (optional default:id) lookup by 'id', or 'trans'
+ * @param $id the order id or txn id
+ * @param $by (optional default:id) lookup by 'id', or 'trans'
  * @return bool|null true/false voided or null if order does not exist
  **/
 function shopp_order_is_void ( $id = false, $by = 'id' ) {
@@ -367,8 +367,8 @@ function shopp_order_is_void ( $id = false, $by = 'id' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $id the order id, or the transaction id
- * @param string $by (optional default:id) lookup by 'id', or 'trans'
+ * @param $id the order id, or the transaction id
+ * @param $by (optional default:id) lookup by 'id', or 'trans'
  * @return Purchase|bool Purchase object returned if the order exists, else returns false
  **/
 function shopp_order_exists ( $id = false, $by = 'id' ) {
@@ -390,7 +390,7 @@ function shopp_order_exists ( $id = false, $by = 'id' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $customer the customer that the order will be created for
+ * @param $customer the customer that the order will be created for
  * @return bool|ShoppPurchase false on failure, Purchase object of recently created order on success
  **/
 function shopp_add_order ( $customer = false ) {
@@ -449,7 +449,7 @@ function shopp_rmv_order ($id) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $order (required) the order id to add the line item to
+ * @param $order (required) the order id to add the line item to
  * @param array|Item $data data to create the free-form item from (see $item_fields for allowed data), or alternately an Item object
  * @return bool|Purchased item object - false on failure, new order line item on success.
  **/
@@ -522,8 +522,8 @@ function shopp_add_order_line ( $order = false, $data = array() ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $order (required) the order id to remove the line from
- * @param int $line (optional default:0) the index of the line to remove
+ * @param $order (required) the order id to remove the line from
+ * @param $line (optional default:0) the index of the line to remove
  * @return bool true on success, false on failure
  **/
 function shopp_rmv_order_line ( $order = false, $line = 0 ) {
@@ -564,7 +564,7 @@ function shopp_rmv_order_line ( $order = false, $line = 0 ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $order (required) the order id
+ * @param $order (required) the order id
  * @return bool|array false on failure, array of ShoppPurchased line item objects on success
  **/
 function shopp_order_lines ( $order = false ) {
@@ -579,7 +579,7 @@ function shopp_order_lines ( $order = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $order the order id
+ * @param $order the order id
  * @return int the number of line items
  **/
 function shopp_order_line_count ( $order = false ) {
@@ -594,9 +594,9 @@ function shopp_order_line_count ( $order = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $order the order id to add the download asset to
- * @param int $line the order line item to add the download asset to
- * @param int $download the download asset id
+ * @param $order the order id to add the download asset to
+ * @param $line the order line item to add the download asset to
+ * @param $download the download asset id
  * @return bool true on success, false on failure
  **/
 function shopp_add_order_line_download ( $order = false, $line = 0, $download = false ) {
@@ -630,8 +630,8 @@ function shopp_add_order_line_download ( $order = false, $line = 0, $download = 
  * @author John Dillick
  * @since 1.2
  *
- * @param int $order the order id to remove the download asset from
- * @param int $line the order line item to remove the download asset from
+ * @param $order the order id to remove the download asset from
+ * @param $line the order line item to remove the download asset from
  * @return bool true on success, false on failure
  **/
 function shopp_rmv_order_line_download ( $order = false, $line = 0 ) {
@@ -659,8 +659,8 @@ function shopp_rmv_order_line_download ( $order = false, $line = 0 ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $order the order id from which to retrieve the data entry
- * @param string $name (optional) the key/index of the data entry to retrieve from the data, false for the whole array
+ * @param $order the order id from which to retrieve the data entry
+ * @param $name (optional) the key/index of the data entry to retrieve from the data, false for the whole array
  * @return mixed one named order data value, or an array of data, false if no value can be found
  **/
 function shopp_order_data ( $order = false, $name = false ) {
@@ -679,8 +679,8 @@ function shopp_order_data ( $order = false, $name = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $order the order id to which to set the order data entry
- * @param string $name the key/index of the order data entry
+ * @param $order the order id to which to set the order data entry
+ * @param $name the key/index of the order data entry
  * @param mixed $value the value to set to the order data
  * @return bool true on success, false on failure
  **/
@@ -705,8 +705,8 @@ function shopp_set_order_data ( $order = false, $name = false, $value = false ) 
  * @author John Dillick
  * @since 1.2
  *
- * @param int $order the order id from which to remove the order data
- * @param string $name (optional default:false) the key/index of the order data entry to remove, false to remove all entries
+ * @param $order the order id from which to remove the order data
+ * @param $name (optional default:false) the key/index of the order data entry to remove, false to remove all entries
  * @return bool true on success, false on failure
  **/
 function shopp_rmv_order_data ( $order = false, $name = false ) {
@@ -726,8 +726,8 @@ function shopp_rmv_order_data ( $order = false, $name = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $order the order id
- * @param int $line the order line item
+ * @param $order the order id
+ * @param $line the order line item
  * @return int|bool count number of entries in the line item data array for a given line item, false if line item doesn't exist
  **/
 function shopp_order_line_data_count ($order = false, $line = 0 ) {
@@ -745,9 +745,9 @@ function shopp_order_line_data_count ($order = false, $line = 0 ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $order the order id
- * @param int $line the order line item
- * @param string $name (optional) the key/index to the order line-item data to retrieve
+ * @param $order the order id
+ * @param $line the order line item
+ * @param $name (optional) the key/index to the order line-item data to retrieve
  * @return mixed false if the line-item does not exist, the value if name is specified, else the data entries array
  **/
 function shopp_order_line_data ($order = false, $line = 0, $name = false) {
@@ -768,8 +768,8 @@ function shopp_order_line_data ($order = false, $line = 0, $name = false) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $order the order id
- * @param int $line the order line item
+ * @param $order the order id
+ * @param $line the order line item
  * @param array $data new key=>value pairs to add to the line item
  * @return bool true on success, false on failure
  **/
@@ -793,9 +793,9 @@ function shopp_add_order_line_data ( $order = false, $line = 0, $data = array() 
  * @author John Dillick
  * @since 1.2
  *
- * @param int $order (required) the order id
- * @param int $line (required) the order line item
- * @param string $name (optional default:false) the key to remove, removes all data when false
+ * @param $order (required) the order id
+ * @param $line (required) the order line item
+ * @param $name (optional default:false) the key to remove, removes all data when false
  * @return bool true on success, false on failure
  **/
 function shopp_rmv_order_line_data ($order = false, $line = 0, $name = false) {
@@ -817,8 +817,8 @@ function shopp_rmv_order_line_data ($order = false, $line = 0, $name = false) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $order (conditionally required default:false) Will be false for purchase events, but needs the order id otherwise.
- * @param string $type (required) the order event type
+ * @param $order (conditionally required default:false) Will be false for purchase events, but needs the order id otherwise.
+ * @param $type (required) the order event type
  * @param array $message (optional default:array()) the event message protocol
  * @return bool true on success, false on error
  **/

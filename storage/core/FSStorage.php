@@ -295,7 +295,7 @@ class FSStorage extends StorageModule implements StorageEngine {
 	 * If it cannot determine the public URL (in the case of cached images, for example, they may not have been cached
 	 * to disk yet) it will return false.
 	 *
-	 * @param string $uri
+	 * @param $uri
 	 * @return string | bool
 	 */
 	protected function finddirect ( $uri ) {

@@ -254,7 +254,7 @@ class ShoppDiscounts extends ListFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $code The code to apply
+	 * @param $code The code to apply
 	 * @param ShoppOrderPromo $Promo The promotion the code comes from
 	 * @return boolean True if successful, false otherwise
 	 **/
@@ -287,10 +287,10 @@ class ShoppDiscounts extends ListFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param integer $id The discount ID to remove
+	 * @param $id The discount ID to remove
 	 * @return void
 	 **/
-	private function undiscount ( integer $id ) {
+	private function undiscount ( $id ) {
 
 		if ( ! $this->exists($id) ) return false;
 
@@ -352,17 +352,17 @@ class ShoppDiscounts extends ListFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $request The request string to set
+	 * @param $request The request string to set
 	 * @return string The current request
 	 **/
-	public function request ( string $request = null ) {
+	public function request ( $request = null ) {
 
 		if ( isset($request) ) $this->request = $request;
 		return $this->request;
 
 	}
 
-	public function credit ( string $request = null ) {
+	public function credit ( $request = null ) {
 
 		if ( isset($request) ) $this->credit = $request;
 		return $this->credit;
@@ -471,10 +471,10 @@ class ShoppDiscounts extends ListFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $code The code to check
+	 * @param $code The code to check
 	 * @return boolean True if the code is applied, false otherwise
 	 **/
-	public function codeapplied ( string $code ) {
+	public function codeapplied ( $code ) {
 		return isset( $this->codes[ strtolower($code) ]);
 	}
 
@@ -751,7 +751,7 @@ class ShoppDiscountRule {
 	 *
 	 * @param mixed $subject The subject data to compare
 	 * @param mixed $value The value to match against
-	 * @param string $type The data type matching (string or float)
+	 * @param $type The data type matching (string or float)
 	 * @return boolean True for a match, false for no match
 	 **/
 	private function isequalto ( $subject, $value, $type = 'string' ) {
@@ -907,10 +907,10 @@ class ShoppOrderDiscount {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param integer $id The id of a source promotion object
+	 * @param $id The id of a source promotion object
 	 * @return integer The id of the discount
 	 **/
-	public function id ( integer $id = null ) {
+	public function id ( $id = null ) {
 		if ( isset($id) ) $this->id = $id;
 		return $this->id;
 	}
@@ -923,10 +923,10 @@ class ShoppOrderDiscount {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $name The name to set
+	 * @param $name The name to set
 	 * @return string The name of the discount
 	 **/
-	public function name ( string $name = null ) {
+	public function name ( $name = null ) {
 		if ( isset($name) ) $this->name = $name;
 
 		if ( $this->type() == self::CREDIT ) // Add remaining
@@ -1005,10 +1005,10 @@ class ShoppOrderDiscount {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $code The code to set as the discount code
+	 * @param $code The code to set as the discount code
 	 * @return string The code for the discount
 	 **/
-	public function code ( string $code = null ) {
+	public function code ( $code = null ) {
 		if ( isset($code) ) $this->code = $code;
 		return $this->code;
 	}
@@ -1036,10 +1036,10 @@ class ShoppOrderDiscount {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $type The discount type
+	 * @param $type The discount type
 	 * @return integer The ShoppOrderDiscount type
 	 **/
-	public function type ( string $type = null ) {
+	public function type ( $type = null ) {
 		if ( isset($type) ) {
 			switch ( strtolower($type) ) {
 				case 'percentage off':		$this->type = self::PERCENT_OFF; break;
@@ -1059,10 +1059,10 @@ class ShoppOrderDiscount {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $target The target string to convert
+	 * @param $target The target string to convert
 	 * @return integer the ShoppOrderDiscount target
 	 **/
-	public function target ( string $target = null ) {
+	public function target ( $target = null ) {
 		if ( isset($target) ) {
 			switch ( strtolower($target) ) {
 				case 'cart item':	$this->target = self::ITEM; break;
@@ -1152,10 +1152,10 @@ class ShoppOrderDiscount {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $key The item id key
+	 * @param $key The item id key
 	 * @return boolean True if it exists, false otherwise
 	 **/
-	public function hasitem ( string $key ) {
+	public function hasitem ( $key ) {
 		return isset($this->items[ $key ]);
 	}
 
@@ -1296,7 +1296,7 @@ class ShoppPromotions extends ListFramework {
 	 * @param array $records The record set to populate
 	 * @param stdClass $record The loaded record
 	 * @param string|Object $DatabaseObject The class name or object instance for the record
-	 * @param string $index (optional) The column to index records by
+	 * @param $index (optional) The column to index records by
 	 * @param boolean $collate Flag to collect/group records with matching index columns
 	 * @return void
 	 **/

@@ -44,8 +44,8 @@ class ShoppAddress extends ShoppDatabaseObject {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param integer $id The ID to lookup the record by
-	 * @param string $key The column to use for matching the ID against
+	 * @param $id The ID to lookup the record by
+	 * @param $key The column to use for matching the ID against
 	 * @return boolean True if successfully loaded, false otherwise
 	 **/
 	public function load ( $id = false, $key = 'id' ) {
@@ -249,7 +249,7 @@ class PostcodeMapping {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param string $prefix The postal code prefix
+	 * @param $prefix The postal code prefix
 	 * @param ShoppAddress $Address
 	 * @return void
 	 **/

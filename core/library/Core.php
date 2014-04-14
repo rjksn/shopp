@@ -139,8 +139,8 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $text The text to translate
-	 * @param string $context An explination of how and where the text is used
+	 * @param $text The text to translate
+	 * @param $context An explination of how and where the text is used
 	 * @return string The translated text
 	 **/
 	public static function translate ( $text, $context = null ) {
@@ -158,7 +158,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $text The text to translate
+	 * @param $text The text to translate
 	 * @return string The translated text
 	 **/
 	public static function __ () {
@@ -174,7 +174,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $text The text to translate
+	 * @param $text The text to translate
 	 * @return string The translated text
 	 **/
 	public static function _e () {
@@ -188,8 +188,8 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $text The text to translate
-	 * @param string $context An explination of how and where the text is used
+	 * @param $text The text to translate
+	 * @param $context An explination of how and where the text is used
 	 * @return string The translated text
 	 **/
 	public static function _x () {
@@ -208,7 +208,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $text The text to translate
+	 * @param $text The text to translate
 	 * @return string The translated Markdown-rendered HTML text
 	 **/
 	public static function _m () {
@@ -225,7 +225,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $text The text to translate
+	 * @param $text The text to translate
 	 * @return void
 	 **/
 	public static function _em ( $text ) {
@@ -239,7 +239,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $text The text to translate
+	 * @param $text The text to translate
 	 * @return string The translated Markdown-rendered HTML text
 	 **/
 	public static function _mi () {
@@ -254,8 +254,8 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $text The text to translate
-	 * @param string $context An explination of how and where the text is used
+	 * @param $text The text to translate
+	 * @param $context An explination of how and where the text is used
 	 * @return string The translated text
 	 **/
 	public static function _emi ( $text ) {
@@ -269,8 +269,8 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $text The text to translate
-	 * @param string $context An explination of how and where the text is used
+	 * @param $text The text to translate
+	 * @param $context An explination of how and where the text is used
 	 * @return string The translated text
 	 **/
 	public static function _mx ( $text, $context ) {
@@ -287,8 +287,8 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $text The text to translate
-	 * @param string $context An explination of how and where the text is used
+	 * @param $text The text to translate
+	 * @param $context An explination of how and where the text is used
 	 * @return string The translated text
 	 **/
 	public static function _emx ( $text, $context ) {
@@ -322,11 +322,11 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $format A date() format string
-	 * @param int $timestamp (optional) The timestamp to be formatted (defaults to current timestamp)
+	 * @param $format A date() format string
+	 * @param $timestamp (optional) The timestamp to be formatted (defaults to current timestamp)
 	 * @return string The formatted localized date/time
 	 **/
-	public static function _d ( string $format, $timestamp = null ) {
+	public static function _d ( $format, $timestamp = null ) {
 
 		$tokens = array(
 			'D' => array('Mon' => Shopp::__('Mon'), 'Tue' => Shopp::__('Tue'),
@@ -369,10 +369,10 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.1.7
 	 *
-	 * @param string $text Text to translate
+	 * @param $text Text to translate
 	 * @return void
 	 **/
-	public static function _jse ( string $text) {
+	public static function _jse ( $text) {
 		echo json_encode(Shopp::translate($text));
 	}
 
@@ -418,8 +418,8 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $string The string to add
-	 * @param string $url The url to append to
+	 * @param $string The string to add
+	 * @param $url The url to append to
 	 * @return string
 	 **/
 	public static function add_query_string ($string,$url) {
@@ -433,7 +433,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $script JavaScript fragment
+	 * @param $script JavaScript fragment
 	 * @param boolean $global (optional) Include the script in the global namespace
 	 * @return void
 	 **/
@@ -474,9 +474,9 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param int $avg Mean average number in the distribution
-	 * @param int $max The max number in the distribution
-	 * @param int $min The minimum in the distribution
+	 * @param $avg Mean average number in the distribution
+	 * @param $max The max number in the distribution
+	 * @param $min The minimum in the distribution
 	 * @return array A list of number ranges
 	 **/
 	public static function auto_ranges ($avg, $max, $min, $values) {
@@ -521,8 +521,8 @@ abstract class ShoppCore {
 	 * @version 1.1
 	 *
 	 * @param float $value The value that needs converted
-	 * @param string $unit The unit that we are converting to
-	 * @param string $from (optional) The unit that we are converting from - defaults to system settings
+	 * @param $unit The unit that we are converting to
+	 * @param $from (optional) The unit that we are converting from - defaults to system settings
 	 * @return float|boolean The converted value, false on error
 	 **/
 	public static function convert_unit ($value = 0, $unit, $from=false) {
@@ -569,8 +569,8 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis, John Dillick
 	 * @since 1.0
 	 *
-	 * @param string $src The source directory for the builtin template files
-	 * @param string $target The target directory in the active theme
+	 * @param $src The source directory for the builtin template files
+	 * @param $target The target directory in the active theme
 	 * @return void
 	 **/
 	public static function copy_templates ( $src, $target ) {
@@ -627,9 +627,9 @@ abstract class ShoppCore {
 	 * @author John Dillick
 	 * @since 1.1.4.1
 	 *
-	 * @param array/string $tags the action/filter name(s) to be removed
-	 * @param string $class the classname of the objects you wish to remove actions from
-	 * @param int $priority
+	 * @param array/$tags the action/filter name(s) to be removed
+	 * @param $class the classname of the objects you wish to remove actions from
+	 * @param $priority
 	 * @return void
 	 **/
 	public static function remove_class_actions ( $tags = false, $class = 'stdClass', $priority = false ) {
@@ -708,10 +708,10 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param int|string $week The week of the month (1-4, -1 or first-fourth, last)
-	 * @param int|string $dayOfWeek The day of the week (0-6 or Sunday-Saturday)
-	 * @param int $month The month, uses current month if none provided
-	 * @param int $year The year, uses current year if none provided
+	 * @param int|$week The week of the month (1-4, -1 or first-fourth, last)
+	 * @param int|$dayOfWeek The day of the week (0-6 or Sunday-Saturday)
+	 * @param $month The month, uses current month if none provided
+	 * @param $year The year, uses current year if none provided
 	 * @return void
 	 **/
 	public static function datecalc($week=-1,$dayOfWeek=-1,$month=-1,$year=-1) {
@@ -810,8 +810,8 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param int $start The starting timestamp
-	 * @param int $end The ending timestamp
+	 * @param $start The starting timestamp
+	 * @param $end The ending timestamp
 	 * @return int	Number of days between the start and end
 	 **/
 	public static function duration ($start,$end) {
@@ -838,7 +838,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $name The filename to check
+	 * @param $name The filename to check
 	 * @return boolean
 	 **/
 	public static function filter_dotfiles ($name) {
@@ -850,9 +850,9 @@ abstract class ShoppCore {
 	 *
 	 * @author Jonathan Davis
 	 * @since 1.1
-	 * @param string $filename The target file to find
-	 * @param string $directory The starting directory
-	 * @param string $root The original starting directory
+	 * @param $filename The target file to find
+	 * @param $directory The starting directory
+	 * @param $root The original starting directory
 	 * @param array $found Result array that matching files are added to
 	 * @deprecated 1.3 please use filefind() instead
 	 **/
@@ -894,8 +894,8 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $file The path to the file
-	 * @param string $name (optional) The name of the file
+	 * @param $file The path to the file
+	 * @param $name (optional) The name of the file
 	 * @return string The mimetype of the file
 	 **/
 	public static function file_mimetype ($file,$name=false) {
@@ -982,7 +982,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $value Numeric string to be converted
+	 * @param $value Numeric string to be converted
 	 * @param boolean $round (optional) Whether to round the value (default true for to round)
 	 * @param array $format (optional) The currency format to use for precision (defaults to the current base of operations)
 	 * @return float
@@ -1022,8 +1022,8 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $url Source URL to rewrite
-	 * @return string $url The secure URL
+	 * @param $url Source URL to rewrite
+	 * @return $url The secure URL
 	 **/
 	public static function force_ssl ($url,$rewrite=false) {
 		if(is_ssl() || $rewrite)
@@ -1038,7 +1038,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $file The target gateway file
+	 * @param $file The target gateway file
 	 * @return string The path fragment for the gateway file
 	 **/
 	public static function gateway_path ($file) {
@@ -1051,7 +1051,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param string $name The name of the setting to read
+	 * @param $name The name of the setting to read
 	 * @return string The readable config size
 	 **/
 	public static function ini_size ($name) {
@@ -1135,7 +1135,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $url The URL of the link to encode
+	 * @param $url The URL of the link to encode
 	 * @return void
 	 **/
 	public static function linkencode ($url) {
@@ -1197,7 +1197,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $datetime A MySQL date time string
+	 * @param $datetime A MySQL date time string
 	 * @return int A timestamp number usable by PHP date functions
 	 **/
 	public static function mktimestamp ($datetime) {
@@ -1213,7 +1213,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param int $timestamp A timestamp number
+	 * @param $timestamp A timestamp number
 	 * @return string An SQL datetime formatted string
 	 **/
 	public static function mkdatetime ($timestamp) {
@@ -1226,8 +1226,8 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param int $hour The hour of the meridiem
-	 * @param string $meridiem Specified meridiem of "AM" or "PM"
+	 * @param $hour The hour of the meridiem
+	 * @param $meridiem Specified meridiem of "AM" or "PM"
 	 * @return int The 24-hour equivalent
 	 **/
 	public static function mk24hour ($hour, $meridiem) {
@@ -1253,7 +1253,7 @@ abstract class ShoppCore {
 	 * @since 1.0
 	 *
 	 * @param array $list The list of options
-	 * @param int|string $selected The array index, or key name of the selected value
+	 * @param int|$selected The array index, or key name of the selected value
 	 * @param boolean $values (optional) Use the array key as the option value attribute (defaults to false)
 	 * @param boolean $extend (optional) Use to add the selected value if it doesn't exist in the specified list of options
 	 * @return string The markup of option elements
@@ -1325,9 +1325,9 @@ abstract class ShoppCore {
 	 * @since 1.1
 	 *
 	 * @param float $number A floating point or integer to format
-	 * @param int $precision (optional) The number of decimal precision to format to [default: 2]
-	 * @param string $decimals The decimal separator character [default: .]
-	 * @param string $separator The number grouping separator character [default: ,]
+	 * @param $precision (optional) The number of decimal precision to format to [default: 2]
+	 * @param $decimals The decimal separator character [default: .]
+	 * @param $separator The number grouping separator character [default: ,]
 	 * @param int|array $grouping The number grouping pattern [default: array(3)]
 	 * @return string The formatted number
 	 **/
@@ -1370,7 +1370,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param int $num The number to format
+	 * @param $num The number to format
 	 * @return array A list of phone number components
 	 **/
 
@@ -1391,7 +1391,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param int $num The number to format
+	 * @param $num The number to format
 	 * @return string The formatted telephone number
 	 **/
 	public static function phone ($num) {
@@ -1483,7 +1483,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param int $bytes The number of bytes
+	 * @param $bytes The number of bytes
 	 * @return string The formatted unit size
 	 **/
 	public static function readableFileSize($bytes,$precision=1) {
@@ -1517,8 +1517,8 @@ abstract class ShoppCore {
 	 * @author John Dillick
 	 * @since 1.1
 	 *
-	 * @param string $data data to be encrypted
-	 * @param string $pkey PEM encoded RSA public key
+	 * @param $data data to be encrypted
+	 * @param $pkey PEM encoded RSA public key
 	 * @return string Encrypted binary data
 	 **/
 	public static function rsa_encrypt ( $data, $pkey ) {
@@ -1534,10 +1534,10 @@ abstract class ShoppCore {
 	 * @since 1.0
 	 * @version 1.1
 	 *
-	 * @param string $format A currency formatting string such as $#,###.##
+	 * @param $format A currency formatting string such as $#,###.##
 	 * @return array Formatting options list
 	 **/
-	public static function scan_money_format ( string $format ) {
+	public static function scan_money_format ( $format ) {
 		$f = array(
 			'cpos' => true,
 			'currency' => '',
@@ -1618,8 +1618,8 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param string $var Name of the var to set
-	 * @param string $value Value to set
+	 * @param $var Name of the var to set
+	 * @param $value Value to set
 	 * @return void
 	 **/
 	public static function set_wp_query_var ($var,$value) {
@@ -1637,7 +1637,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param string $key The name of the query_var to retrieve
+	 * @param $key The name of the query_var to retrieve
 	 * @return mixed
 	 **/
 	public static function get_wp_query_var ($key) {
@@ -1679,7 +1679,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $template Email template file path (or a string containing the template itself)
+	 * @param $template Email template file path (or a string containing the template itself)
 	 * @param array $data The data to populate the template with
 	 * @return boolean True on success, false on failure
 	 **/
@@ -1773,8 +1773,8 @@ abstract class ShoppCore {
 	 *     info@merchant.com
 	 *
 	 * @see ShoppCore::email_to()
-	 * @param string $addresses
-	 * @param string $addressee = ''
+	 * @param $addresses
+	 * @param $addressee = ''
 	 * @return string
 	 */
 	public static function email_from ( $addresses, $addressee = '' ) {
@@ -1904,7 +1904,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $page The normal page name
+	 * @param $page The normal page name
 	 * @return string The modified page name
 	 **/
 	public static function pagename ($page) {
@@ -1949,7 +1949,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $uri The URI to redirect to
+	 * @param $uri The URI to redirect to
 	 * @param boolean $exit (optional) Exit immediately after the redirect (defaults to true, set to false to override)
 	 * @return void
 	 **/
@@ -1967,8 +1967,8 @@ abstract class ShoppCore {
 	 * @author Mark Jaquith, Ryan Boren
 	 * @since 1.1
 	 *
-	 * @param string $location The URL to redirect to
-	 * @param int $status (optional) The HTTP status to send to the browser
+	 * @param $location The URL to redirect to
+	 * @param $status (optional) The HTTP status to send to the browser
 	 * @return void
 	 **/
 	public static function safe_redirect($location, $status = 302) {
@@ -2049,10 +2049,10 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param string $name The name of the template file
+	 * @param $name The name of the template file
 	 * @return string Prefixed template file
 	 **/
-	public static function template_prefix ( string $name ) {
+	public static function template_prefix ( $name ) {
 		return apply_filters('shopp_template_directory', 'shopp') . '/' . $name;
 	}
 
@@ -2062,7 +2062,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param string $name The name of the template file
+	 * @param $name The name of the template file
 	 * @return string The URL for the template file
 	 **/
 	public static function template_url ( $name ) {
@@ -2088,7 +2088,7 @@ abstract class ShoppCore {
 	 * @version 1.2
 	 *
 	 * @param mixed $request Additional URI requests
-	 * @param string $page The gateway page
+	 * @param $page The gateway page
 	 * @param boolean $secure (optional) True for secure URLs, false to force unsecure URLs
 	 * @return string The final URL
 	 **/
@@ -2168,9 +2168,9 @@ abstract class ShoppCore {
 	 * Recursively sorts a heirarchical tree of data
 	 *
 	 * @param array $item The item data to be sorted
-	 * @param int $parent (internal) The parent item of the current iteration
-	 * @param int $key (internal) The identified index of the parent item in the current iteration
-	 * @param int $depth (internal) The number of the nested depth in the current iteration
+	 * @param $parent (internal) The parent item of the current iteration
+	 * @param $key (internal) The identified index of the parent item in the current iteration
+	 * @param $depth (internal) The number of the nested depth in the current iteration
 	 * @return array The sorted tree of data
 	 * @author Jonathan Davis
 	 * @deprecated 1.3
@@ -2210,7 +2210,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param string $string The natural language value
+	 * @param $string The natural language value
 	 * @param array $istrue A list strings that are true
 	 * @return boolean The boolean value of the provided text
 	 **/
@@ -2233,7 +2233,7 @@ abstract class ShoppCore {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $type The HTML element type name
+	 * @param $type The HTML element type name
 	 * @return boolean True if valid, false if not
 	 **/
 	public static function valid_input ($type) {
@@ -2375,8 +2375,8 @@ if ( ! function_exists('sanitize_path') ) {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $path The path to clean up
-	 * @return string $path The forward-slash path
+	 * @param $path The path to clean up
+	 * @return $path The forward-slash path
 	 **/
 	function sanitize_path ($path) {
 		return str_replace('\\', '/', $path);
@@ -2394,8 +2394,8 @@ if ( ! function_exists('get_class_property') ) {
 	 * @author Jonathan Davis
 	 * @since PHP 5.3.0
 	 *
-	 * @param string $classname Name of the class
-	 * @param string $property Name of the property
+	 * @param $classname Name of the class
+	 * @param $property Name of the property
 	 * @return mixed Value of the property
 	 **/
 	function get_class_property ($classname, $property) {

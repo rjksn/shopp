@@ -21,8 +21,8 @@ defined( 'WPINC' ) || header( 'HTTP/1.1 403' ) & exit; // Prevent direct access
  * @author John Dillick
  * @since 1.2
  *
- * @param int $customer (optional) customer id, WordPress user associated customer, email address associated with customer, or false to load the current global customer object
- * @param string $key (optional default:customer) customer for lookup by customer id, wpuser to lookup by WordPress user, or email to lookup by email address
+ * @param $customer (optional) customer id, WordPress user associated customer, email address associated with customer, or false to load the current global customer object
+ * @param $key (optional default:customer) customer for lookup by customer id, wpuser to lookup by WordPress user, or email to lookup by email address
  * @return mixed, stdClass representation of the customer, bool false on failure
  **/
 function shopp_customer ( $customer = false, $key = 'customer' ) {
@@ -62,8 +62,8 @@ function shopp_customer ( $customer = false, $key = 'customer' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $customer (required) customer id, WordPress user associated customer, or email address associated with customer.
- * @param string $key (optional default:customer) customer for lookup by customer id, wpuser to lookup by WordPress user, or email to lookup by email address
+ * @param $customer (required) customer id, WordPress user associated customer, or email address associated with customer.
+ * @param $key (optional default:customer) customer for lookup by customer id, wpuser to lookup by WordPress user, or email to lookup by email address
  * @return bool true if the customer exists, else false
  **/
 function shopp_customer_exists ( $customer = false, $key = 'customer' ) {
@@ -81,7 +81,7 @@ function shopp_customer_exists ( $customer = false, $key = 'customer' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $customer customer id to check or set
+ * @param $customer customer id to check or set
  * @param mixed $flag (optional default:null) null to return the marketing status, true to turn on marketing for a customer, false to turn off marketing for a customer
  * @return bool true if marketing accepted, false on failure and if marketing is not accepted.
  **/
@@ -281,9 +281,9 @@ function shopp_set_customer_address ( $customer = false, $data = false, $type = 
  * @author John Dillick
  * @since 1.2
  *
- * @param int $customer (required) the customer id the address is added to
+ * @param $customer (required) the customer id the address is added to
  * @param array $data (required) key value pairs for address, values can be keyed 'address', 'xaddress', 'city', 'state', 'postcode', 'country', 'geocode',  and 'residential' (residential added to shipping address)
- * @param string $type (optional default: billing) billing, shipping, or both
+ * @param $type (optional default: billing) billing, shipping, or both
  * @return mixed int id for one address creation/update, array of ids if created/updated both shipping and billing, bool false on error
  **/
 function shopp_add_customer_address (  $customer = false, $data = false, $type = 'billing' ) {
@@ -347,7 +347,7 @@ function shopp_add_customer_address (  $customer = false, $data = false, $type =
  * @author John Dillick
  * @since 1.2
  *
- * @param int $customer (required) id of the customer to remove
+ * @param $customer (required) id of the customer to remove
  * @return bool true on success, false on failure
  **/
 function shopp_rmv_customer (  $customer = false ) {
@@ -384,8 +384,8 @@ function shopp_rmv_customer (  $customer = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $id (required) the address id to retrieve, or customer id
- * @param string $type (optional default:billing) 'billing' to lookup billing address by customer id, 'shipping' to lookup shipping adress by customer id, or 'id' to lookup by address id
+ * @param $id (required) the address id to retrieve, or customer id
+ * @param $type (optional default:billing) 'billing' to lookup billing address by customer id, 'shipping' to lookup shipping adress by customer id, or 'id' to lookup by address id
  * @return ShoppAddress object
  **/
 function shopp_address (  $id = false, $type = 'billing' ) {
@@ -419,7 +419,7 @@ function shopp_address (  $id = false, $type = 'billing' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $customer (required) the customer id
+ * @param $customer (required) the customer id
  * @return int number of address records that exist for the customer
  **/
 function shopp_customer_address_count (  $customer = false ) {
@@ -439,7 +439,7 @@ function shopp_customer_address_count (  $customer = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $customer (required) the customer id
+ * @param $customer (required) the customer id
  * @return array list of addresses
  **/
 function shopp_customer_addresses (  $customer = false ) {
@@ -460,7 +460,7 @@ function shopp_customer_addresses (  $customer = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $address the address id to remove
+ * @param $address the address id to remove
  * @return bool true on success, false on failure
  **/
 function shopp_rmv_customer_address (  $address = false ) {

@@ -157,10 +157,10 @@ class ShoppTax {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $country The country code
+	 * @param $country The country code
 	 * @return boolean True if the country matches or false
 	 **/
-	protected function taxcountry ( string $country ) {
+	protected function taxcountry ( $country ) {
 		if ( empty($country) ) return false;
 		return apply_filters('shopp_tax_country', ( $this->address['country'] == $country || self::ALL == $country ),  $this->address['country'], $country);
 	}
@@ -171,10 +171,10 @@ class ShoppTax {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $zone The name of the zone
+	 * @param $zone The name of the zone
 	 * @return boolean True if the zone matches or false
 	 **/
-	protected function taxzone ( string $zone ) {
+	protected function taxzone ( $zone ) {
 		if ( empty($zone) ) return true;
 		return ($this->address['zone'] == $zone);
 	}
@@ -188,7 +188,7 @@ class ShoppTax {
 	 * @param array $rules The list of tax rules to test
 	 * @return boolean True if the rules match enough to apply, false otherwise
 	 **/
-	protected function taxrules ( array $rules, string $logic ) {
+	protected function taxrules ( array $rules, $logic ) {
 		if ( empty($rules) ) return true;
 
 		$apply = false;
@@ -249,12 +249,12 @@ class ShoppTax {
 	 * @author Jonathan Davis
 	 * @since 1.3.2
 	 *
-	 * @param string $country The country code
-	 * @param string $state The state name or code
-	 * @param string $locale (optional) The locale name
+	 * @param $country The country code
+	 * @param $state The state name or code
+	 * @param $locale (optional) The locale name
 	 * @return array An associative array containing the country, zone and locale
 	 **/
-	public function location ( string $country = null, string $state = null, string $locale = null ) {
+	public function location ( $country = null, $state = null, $locale = null ) {
 
 		$address = apply_filters('shopp_taxable_address', array(
 			'country' => $country,
@@ -351,11 +351,11 @@ class ShoppTax {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param int $quantity The quantity to factor tax amounts by
+	 * @param $quantity The quantity to factor tax amounts by
 	 * @param array $rates the list of applicable ShoppItemTax entries
 	 * @return float $total
 	 **/
-	public function total ( array &$taxes, integer $quantity ) {
+	public function total ( array &$taxes, $quantity ) {
 
 		$total = 0;
 		foreach ( $taxes as $label => &$taxrate ) {
@@ -422,11 +422,11 @@ class ShoppTaxableItem {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $property The property to test
-	 * @param string $value The value to match
+	 * @param $property The property to test
+	 * @param $value The value to match
 	 * @return boolean True if matched or false
 	 **/
-	private function ShoppCartItem ( string $property, string $value ) {
+	private function ShoppCartItem ( $property, $value ) {
 		$CartItem = $this->Object;
 		switch ( $property ) {
 			case 'product-name': return ($value == $CartItem->name); break;
@@ -442,11 +442,11 @@ class ShoppTaxableItem {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $property The property to test
-	 * @param string $value The value to match
+	 * @param $property The property to test
+	 * @param $value The value to match
 	 * @return boolean True if matched or false
 	 **/
-	private function ShoppProduct ( string $property, string $value ) {
+	private function ShoppProduct ( $property, $value ) {
 		$Product = $this->Object;
 		switch ( $property ) {
 			case 'product-name': return ($value == $Product->name); break;
@@ -467,8 +467,8 @@ class ShoppTaxableItem {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $property The property to test
-	 * @param string $value The value to match
+	 * @param $property The property to test
+	 * @param $value The value to match
 	 * @return boolean True if matched or false
 	 **/
 	private function purchased () {

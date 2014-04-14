@@ -91,7 +91,7 @@ class ShippingModules extends ModuleLoader {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $module The module class name
+	 * @param $module The module class name
 	 * @return void
 	 **/
 	public function addmethods ( $module ) {
@@ -225,7 +225,7 @@ interface ShippingModule {
 	 *
 	 * @since 1.1
 	 *
-	 * @param int $id The index of the Item in the cart contents array
+	 * @param $id The index of the Item in the cart contents array
 	 * @param Item $Item The cart Item object
 	 * @return void
 	 **/
@@ -396,8 +396,8 @@ abstract class ShippingFramework {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $name The name of a setting
-	 * @param string $name... (optional) Additional setting names to initialize
+	 * @param $name The name of a setting
+	 * @param $name... (optional) Additional setting names to initialize
 	 * @return void
 	 **/
 	public function setup () {
@@ -413,8 +413,8 @@ abstract class ShippingFramework {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $data The encoded data to send, false for GET queries
-	 * @param string $url The URL to connect to
+	 * @param $data The encoded data to send, false for GET queries
+	 * @param $url The URL to connect to
 	 * @return string Raw response
 	 **/
 	public function send ($data=false,$url,$options=array()) {
@@ -657,8 +657,8 @@ abstract class ShippingFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param int $value The value to convert
-	 * @param string $size The size dimension being converted (the sizing method to use)
+	 * @param $value The value to convert
+	 * @param $size The size dimension being converted (the sizing method to use)
 	 * @return float The converted size amount
 	 **/
 	public function size ( $value = 0, $size = 'weight' ) {
@@ -680,7 +680,7 @@ abstract class ShippingFramework {
 	 * @since 1.3
 	 *
 	 * @param float $value The value to convert
-	 * @param string $size The size dimension name being converted
+	 * @param $size The size dimension name being converted
 	 * @return int The converted size amount
 	 **/
 	protected function sized ( $value, $size ) {
@@ -796,8 +796,8 @@ abstract class ShippingFramework {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $module The module class name
-	 * @param string $name The formal name of the module
+	 * @param $module The module class name
+	 * @param $name The formal name of the module
 	 * @return void
 	 **/
 	public function initui ($name) {
@@ -1690,7 +1690,7 @@ class ShippingPackager implements ShippingPackagingInterface {
 	 *
 	 * @param ShippingPackageItem $Item Item to add
 	 * @param ShippingPackager $pkgr the calling packager object
-	 * @param string $type expect dimensions 'dims', or just mass
+	 * @param $type expect dimensions 'dims', or just mass
 	 * @return void
 	 **/
 	public function all_add ( $Item, $pkgr, $type='dims' ) {

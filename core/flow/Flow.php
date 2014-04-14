@@ -80,7 +80,7 @@ class ShoppFlow {
 	 *
 	 * @author Jonathan Davis
 	 *
-	 * @param string $controller The base name of the controller file
+	 * @param $controller The base name of the controller file
 	 * @return void
 	 **/
 	public function handler ( $controller = null ) {

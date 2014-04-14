@@ -80,8 +80,8 @@ function shopp_enqueue_script( $handle, $src = false, $deps = array(), $ver = fa
  * The values for list defaults to 'queue', which is the same as enqueue for
  * scripts.
  *
- * @param string $handle Handle used to add script.
- * @param string $list Optional, defaults to 'queue'. Others values are 'registered', 'queue', 'done', 'to_do'
+ * @param $handle Handle used to add script.
+ * @param $list Optional, defaults to 'queue'. Others values are 'registered', 'queue', 'done', 'to_do'
  * @return bool
  */
 function shopp_script_is( $handle, $list = 'queue' ) {

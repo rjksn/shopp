@@ -86,7 +86,7 @@ class ShoppCustomer extends ShoppDatabaseObject {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param int $flag The flag named constant (ShoppCustomer::LOGIN, ShoppCustomer::GUEST, ShoppCustomer::WPUSER)
+	 * @param $flag The flag named constant (ShoppCustomer::LOGIN, ShoppCustomer::GUEST, ShoppCustomer::WPUSER)
 	 * @return boolean True if flag is set, false otherwise
 	 **/
 	public function session ( $flag, $setting = null ) {
@@ -101,7 +101,7 @@ class ShoppCustomer extends ShoppDatabaseObject {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param int $flag The flag named constant (ShoppCustomer::PASSWORD, ShoppCustomer::PROFILE)
+	 * @param $flag The flag named constant (ShoppCustomer::PASSWORD, ShoppCustomer::PROFILE)
 	 * @return boolean True if the flag is set, false otherwise
 	 **/
 	public function updated ( $flag, $setting = null ) {
@@ -116,8 +116,8 @@ class ShoppCustomer extends ShoppDatabaseObject {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $property The flag property to change
-	 * @param int $flag The named constant
+	 * @param $property The flag property to change
+	 * @param $flag The named constant
 	 * @param boolean $setting True for on, false for off
 	 * @return boolean True if set, false otherwise
 	 **/
@@ -308,7 +308,7 @@ class ShoppCustomer extends ShoppDatabaseObject {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param int $id The purchase record ID
+	 * @param $id The purchase record ID
 	 * @return void
 	 **/
 	public function order ( $id ) {

@@ -599,7 +599,7 @@ class ShoppPurchase extends ShoppDatabaseObject {
 	 * @since 1.0
 	 *
 	 * @param Object $Object The object to copy properties from
-	 * @param string $prefix A prefix to use for matching source object properties
+	 * @param $prefix A prefix to use for matching source object properties
 	 * @param array $ignores A list of properties to ignore
 	 * @return void
 	 **/

@@ -286,7 +286,7 @@ class ImageAsset extends FileAsset {
 	 * Takes the comma separated output of the resizing() method and returns the
 	 * equivalent filename component.
 	 *
-	 * @param string $request
+	 * @param $request
 	 * @return string A valid string for file names
 	 */
 	protected function cachefile ( $request ) {
@@ -415,7 +415,7 @@ class ImageAsset extends FileAsset {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param integer $id The image id
+	 * @param $id The image id
 	 * @param array $args The parameters array
 	 * @return string The generated checksum
 	 **/
@@ -700,10 +700,10 @@ class ImageSetting extends ShoppMetaObject {
 	 *
 	 * @since 1.3
 	 *
-	 * @param integer $setting The numeric ImageSetting value
+	 * @param $setting The numeric ImageSetting value
 	 * @return string The option name
 	 **/
-	public function fit ( integer $setting ) {
+	public function fit ( $setting ) {
 		if ( isset(self::$fittings[ $setting ]) )
 			return self::$fittings[ $setting ];
 		return self::$fittings[0];
@@ -714,10 +714,10 @@ class ImageSetting extends ShoppMetaObject {
 	 *
 	 * @since 1.3
 	 *
-	 * @param integer $setting The numeric ImageSetting value
+	 * @param $setting The numeric ImageSetting value
 	 * @return integer The option value
 	 **/
-	public function quality ( integer $setting ) {
+	public function quality ( $setting ) {
 		if ( isset(self::$qualities[ $setting ])  )
 			return self::$qualities[ $setting ];
 		return self::$qualities[2];
@@ -728,7 +728,7 @@ class ImageSetting extends ShoppMetaObject {
 	 *
 	 * @since 1.3
 	 *
-	 * @param string $prefix (optional) Prefix for the option keys
+	 * @param $prefix (optional) Prefix for the option keys
 	 * @return array The image options
 	 **/
 	public function options ( $prefix = '' ) {

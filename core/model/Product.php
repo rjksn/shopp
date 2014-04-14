@@ -1194,7 +1194,7 @@ class ShoppProduct extends WPShoppObject {
 	 * @since 1.2
 	 *
 	 * @param array $ids Set of product IDs to update
-	 * @param string $status The status to set: publish, draft, trash
+	 * @param $status The status to set: publish, draft, trash
 	 * @return boolean
 	 **/
 	static function publishset ($ids,$status) {
@@ -1221,7 +1221,7 @@ class ShoppProduct extends WPShoppObject {
 	 * @since 1.2
 	 *
 	 * @param array $ids Set of product IDs to update
-	 * @param string $setting Either 'on' or 'off'
+	 * @param $setting Either 'on' or 'off'
 	 * @return boolean
 	 **/
 	static function featureset ($ids,$setting) {
@@ -1293,7 +1293,7 @@ class ProductSummary extends ShoppDatabaseObject {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param integer $id The product ID to update
+	 * @param $id The product ID to update
 	 * @return boolean True if successful, false otherwise
 	 **/
 	public static function rebuild ( $id ) {

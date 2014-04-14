@@ -160,7 +160,7 @@ abstract class ModuleLoader {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $extension File extension to search for (beginning with a '.')
+	 * @param $extension File extension to search for (beginning with a '.')
 	 * @param array $paths Directory paths to search (recursively) for matching files
 	 * @param string &$matches List of files found
 	 * @return boolean True if files were found, false otherwise
@@ -199,7 +199,7 @@ abstract class ModuleLoader {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $module The module file class/package name
+	 * @param $module The module file class/package name
 	 * @return StorageEngine or false
 	 **/
 	function module ( $module ) {
@@ -214,7 +214,7 @@ abstract class ModuleLoader {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $module The module file class/package name
+	 * @param $module The module file class/package name
 	 * @return Object The activated module object or false if it failed to load
 	 **/
 	function activate ( $module ) {
@@ -265,8 +265,8 @@ class ModuleFile {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $path The directory the file lives in
-	 * @param string $file The file name
+	 * @param $path The directory the file lives in
+	 * @param $file The file name
 	 * @return void
 	 **/
 	public function __construct ( $file ) {
@@ -369,7 +369,7 @@ class ModuleFile {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $file The target file
+	 * @param $file The target file
 	 * @return string The meta block from the file
 	 **/
 	public static function docblock ( $file ) {
@@ -473,7 +473,7 @@ class ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; use 'checked' to set whether the element is toggled on or not
 	 *
 	 * @return void
@@ -507,7 +507,7 @@ class ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; use 'selected' to set the selected option
 	 * @param array $options The available options in the menu
 	 *
@@ -545,7 +545,7 @@ class ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; pass a 'selected' attribute as an array to set the selected options
 	 * @param array $options The available options in the menu
 	 *
@@ -596,7 +596,7 @@ class ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; requires a 'name' attribute
 	 *
 	 * @return void
@@ -626,7 +626,7 @@ class ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; requires a 'name' attribute
 	 *
 	 * @return void
@@ -642,7 +642,7 @@ class ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; requires a 'name' attribute
 	 *
 	 * @return void
@@ -658,7 +658,7 @@ class ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; requires a 'name' attribute
 	 *
 	 * @return void
@@ -674,7 +674,7 @@ class ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; requires a 'name' attribute
 	 *
 	 * @return void
@@ -706,7 +706,7 @@ class ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; requires a 'name' attribute
 	 *
 	 * @return void
@@ -736,7 +736,7 @@ class ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; requires a 'name' attribute
 	 *
 	 * @return void

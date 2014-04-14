@@ -21,8 +21,8 @@ defined( 'WPINC' ) || header( 'HTTP/1.1 403' ) & exit; // Prevent direct access
  * @author John Dillick
  * @since 1.2
  *
- * @param int $variant (required) variant id to add
- * @param int $quantity (optional default: 1) quantity of product to add
+ * @param $variant (required) variant id to add
+ * @param $quantity (optional default: 1) quantity of product to add
  * @return bool true on success, false on failure
  **/
 function shopp_add_cart_variant ( $variant = false, $quantity = 1, $key = 'id') {
@@ -48,9 +48,9 @@ function shopp_add_cart_variant ( $variant = false, $quantity = 1, $key = 'id') 
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) product id to add
- * @param int $quantity (optional default: 1) quantity of product to add
- * @param int $variant (optional) variant id to use
+ * @param $product (required) product id to add
+ * @param $quantity (optional default: 1) quantity of product to add
+ * @param $variant (optional) variant id to use
  * @return bool true on success,
  * false on failure
  **/
@@ -96,7 +96,7 @@ function shopp_add_cart_product ( $product = false, $quantity = 1, $variant = fa
  * @author John Dillick
  * @since 1.2
  *
- * @param int|string $item (required) the numeric index or key name of the item to remove
+ * @param int|$item (required) the numeric index or key name of the item to remove
  * @return bool true for success, false on failure
  **/
 function shopp_rmv_cart_item ( $item = false ) {
@@ -132,8 +132,8 @@ function shopp_rmv_cart_item ( $item = false ) {
  * @author Hiranthi Molhoek-Herlaar, Jonathan Davis
  * @since 1.3
  *
- * @param int $item Index of the item in Cart contents
- * @param int $quantity New quantity to update the item to, defaults to 1
+ * @param $item Index of the item in Cart contents
+ * @param $quantity New quantity to update the item to, defaults to 1
  * @return bool true for success, false on failure
  **/
 function shopp_set_cart_item_quantity ( $item = false, $quantity = 1 ) {
@@ -152,10 +152,10 @@ function shopp_set_cart_item_quantity ( $item = false, $quantity = 1 ) {
  * @author Jonathan Davis
  * @since 1.3
  *
- * @param string $item The item fingerprint index identifier
+ * @param $item The item fingerprint index identifier
  * @return bool true for success, false on failure
  **/
-function shopp_set_cart_item_variant ( string $item = null, int $variant = null ) {
+function shopp_set_cart_item_variant ( $item = null, $variant = null ) {
 
 	if ( null === $item ) {
 		shopp_debug(__FUNCTION__ . ' failed: Missing item parameter.');
@@ -210,7 +210,7 @@ function shopp_cart_items_count () {
  * @author John Dillick
  * @since 1.2
  *
- * @param int|string $item the integer index of the item in the cart, string 'recent-cartitem' for last added cart item
+ * @param int|$item the integer index of the item in the cart, string 'recent-cartitem' for last added cart item
  * @return stdClass object with quantity, product id, variant id, and list of addons of the item.
  **/
 function shopp_cart_item ( $item = false ) {
@@ -265,10 +265,10 @@ function shopp_add_cart_promocode ($code = false) {
  * @author Jonathan Davis
  * @since 1.2
  *
- * @param string $code The promotion code to apply
+ * @param $code The promotion code to apply
  * @return void
  **/
-function shopp_add_cart_discount_code( string $code = null ) {
+function shopp_add_cart_discount_code( $code = null ) {
 	if ( null === $code || empty($code) ) {
 		shopp_debug(__FUNCTION__ . " failed: Missing code parameter.");
 	}

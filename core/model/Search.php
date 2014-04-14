@@ -125,8 +125,8 @@ class ContentIndex extends ShoppDatabaseObject {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $product Id of the indexed product
-	 * @param string $type Type of product property indexed
+	 * @param $product Id of the indexed product
+	 * @param $type Type of product property indexed
 	 * @return void
 	 **/
 	function load ($product=false,$type=false) {
@@ -148,7 +148,7 @@ class ContentIndex extends ShoppDatabaseObject {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $content The content to index
+	 * @param $content The content to index
 	 * @return void
 	 **/
 	function save () {
@@ -203,7 +203,7 @@ class SearchParser extends SearchTextFilters {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $query A search query string
+	 * @param $query A search query string
 	 * @return object The price matching object
 	 **/
 	static function PriceMatching ($query) {
@@ -375,7 +375,7 @@ abstract class SearchTextFilters {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $text The text to process
+	 * @param $text The text to process
 	 * @return string text with markup tags removed
 	 **/
 	static function MarkupFilter ($text) {
@@ -388,7 +388,7 @@ abstract class SearchTextFilters {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $string The text to transpose
+	 * @param $string The text to transpose
 	 * @return string Transposed text
 	 **/
 	static function LowercaseFilter ($text) {
@@ -404,7 +404,7 @@ abstract class SearchTextFilters {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $text The text to clean up
+	 * @param $text The text to clean up
 	 * @return string The cleaned text
 	 **/
 	static function StopFilter ($text) {
@@ -422,7 +422,7 @@ abstract class SearchTextFilters {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $text The text to normalize
+	 * @param $text The text to normalize
 	 * @return string normalized text
 	 **/
 	static function NormalizeFilter ($text) {
@@ -448,7 +448,7 @@ abstract class SearchTextFilters {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $text The text to convert
+	 * @param $text The text to convert
 	 * @return string Converted text
 	 **/
 	static function AccentFilter ($text) {
@@ -463,7 +463,7 @@ abstract class SearchTextFilters {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $text The query string to parse
+	 * @param $text The query string to parse
 	 * @return string The boolean search string
 	 **/
 	static function KeywordFilter ($text) {
@@ -491,7 +491,7 @@ abstract class SearchTextFilters {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param string $text The query string to parse
+	 * @param $text The query string to parse
 	 * @return string The shortword search string
 	 **/
 	static function ShortwordFilter ($text) {
@@ -506,7 +506,7 @@ abstract class SearchTextFilters {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $text The search query
+	 * @param $text The search query
 	 * @return string search query without price search
 	 **/
 	static function CurrencyFilter ($text) {
@@ -521,7 +521,7 @@ abstract class SearchTextFilters {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $text The text to stem
+	 * @param $text The text to stem
 	 * @return string The text plus the generated word stems
 	 **/
 	static function StemFilter ($text) {
@@ -562,7 +562,7 @@ class PorterStemmer {
 	 * @since 1.1
 	 * @package shopp
      *
-     * @param  string $word Word to stem
+     * @param  $word Word to stem
      * @return string Stemmed word
      **/
     public static function Stem ($word) {
@@ -626,7 +626,7 @@ class PorterStemmer {
     /**
      * Step 1c
      *
-     * @param string $word Word to stem
+     * @param $word Word to stem
      **/
     private static function step1c($word) {
         $v = self::$regex_vowel;
@@ -642,7 +642,7 @@ class PorterStemmer {
     /**
      * Step 2
      *
-     * @param string $word Word to stem
+     * @param $word Word to stem
      **/
     private static function step2($word) {
         switch (substr($word, -2, 1)) {
@@ -699,7 +699,7 @@ class PorterStemmer {
     /**
      * Step 3
      *
-     * @param string $word String to stem
+     * @param $word String to stem
      **/
     private static function step3 ($word) {
         switch (substr($word, -2, 1)) {
@@ -736,7 +736,7 @@ class PorterStemmer {
     /**
      * Step 4
      *
-     * @param string $word Word to stem
+     * @param $word Word to stem
      **/
     private static function step4 ($word) {
         switch (substr($word, -2, 1)) {
@@ -805,7 +805,7 @@ class PorterStemmer {
     /**
      * Step 5
      *
-     * @param string $word Word to stem
+     * @param $word Word to stem
      **/
     private static function step5 ($word) {
         // Part a
@@ -832,9 +832,9 @@ class PorterStemmer {
      * Replaces the first string with the second, at the end of the string. If third
      * arg is given, then the preceding string must match that m count at least.
      *
-     * @param  string $str   String to check
-     * @param  string $check Ending to check for
-     * @param  string $repl  Replacement string
+     * @param  $str   String to check
+     * @param  $check Ending to check for
+     * @param  $repl  Replacement string
      * @param  int    $m     Optional minimum number of m() to meet
      * @return bool          Whether the $check string was at the end
      *                       of the $str string. True does not necessarily mean
@@ -866,7 +866,7 @@ class PorterStemmer {
      * <c>vcvc<v>   gives 2
      * <c>vcvcvc<v> gives 3
      *
-     * @param  string $str The string to return the m count for
+     * @param  $str The string to return the m count for
      * @return int         The m count
      **/
     private static function m ($str) {
@@ -886,7 +886,7 @@ class PorterStemmer {
      * Returns true/false as to whether the given string contains two
      * of the same consonant next to each other at the end of the string.
      *
-     * @param  string $str String to check
+     * @param  $str String to check
      * @return bool        Result
      **/
     private static function doubleConsonant ($str) {
@@ -898,7 +898,7 @@ class PorterStemmer {
     /**
      * Checks for ending CVC sequence where second C is not W, X or Y
      *
-     * @param  string $str String to check
+     * @param  $str String to check
      * @return bool        Result
      **/
     private static function cvc ($str) {

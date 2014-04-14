@@ -447,7 +447,7 @@ if ( ! class_exists('SplDoublyLinkedList', false) ) {
 		/**
 		 * Sets the iteration mode for the datastructure.
 		 *
-		 * @param int $mode The new mode.
+		 * @param $mode The new mode.
 		 */
 		public function setIteratorMode ( $mode ) {
 			$this->_iteratorMode = $mode;
@@ -584,7 +584,7 @@ if ( ! class_exists('SplQueue', false) ) {
 		 * is thrown.
 		 *
 		 * @throws RuntimeException
-		 * @param int $mode The new mode.
+		 * @param $mode The new mode.
 		 */
 		public function setIteratorMode ( $mode ) {
 			if ( $mode & self::IT_MODE_LIFO ) {
@@ -618,7 +618,7 @@ if ( ! class_exists('SplStack', false) ) {
 		 * is thrown.
 		 *
 		 * @throws RuntimeException
-		 * @param int $mode The new mode.
+		 * @param $mode The new mode.
 		 */
 		public function setIteratorMode ( $mode ) {
 			if( ! ( $mode & self::IT_MODE_LIFO ) ) {

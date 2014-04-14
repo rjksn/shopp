@@ -106,7 +106,7 @@ class StorageEngines extends ModuleLoader {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $type The context type
+	 * @param $type The context type
 	 * @return string The engine module name or false
 	 **/
 	public function type ( $type ) {
@@ -181,7 +181,7 @@ interface StorageEngine {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $uri The uniform resource indicator
+	 * @param $uri The uniform resource indicator
 	 **/
 	public function load( $uri );
 
@@ -191,7 +191,7 @@ interface StorageEngine {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $uri The uniform resource indicator
+	 * @param $uri The uniform resource indicator
 	 * @return void
 	 **/
 	public function output( $uri );
@@ -202,7 +202,7 @@ interface StorageEngine {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $uri The uniform resource indicator
+	 * @param $uri The uniform resource indicator
 	 * @return boolean
 	 **/
 	public function exists( $uri );
@@ -213,7 +213,7 @@ interface StorageEngine {
      * passing through Shopp/a Shopp server like the Shopp Image Server). If a direct URL does not exist for this asset
      * then boolean false will be returned.
      *
-     * @param int $uri
+     * @param $uri
      * @return mixed false | string
      */
     public function direct( $uri );
@@ -227,7 +227,7 @@ interface StorageEngine {
 	 *
 	 * @param FileAsset $asset The parent asset for the data
 	 * @param mixed $data The raw data to be stored
-	 * @param string $type (optional) Type of data source, one of binary or file (file referring to a filepath)
+	 * @param $type (optional) Type of data source, one of binary or file (file referring to a filepath)
 	 **/
 	public function save( $asset, $data, $type = 'binary' );
 
@@ -269,8 +269,8 @@ abstract class StorageModule {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $module The module class name
-	 * @param string $name The formal name of the module
+	 * @param $module The module class name
+	 * @param $name The formal name of the module
 	 * @return void
 	 **/
 	// public function setupui ($module,$name) {
@@ -298,8 +298,8 @@ abstract class StorageModule {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $module The module class name
-	 * @param string $name The formal name of the module
+	 * @param $module The module class name
+	 * @param $name The formal name of the module
 	 * @return void
 	 **/
 	public function initui ( $name, $context ) {
@@ -328,7 +328,7 @@ abstract class StorageModule {
      * exists here only as a stub for compatibility-reasons. If it is not overridden it will always return false.
      *
      * @deprecated This is a stub method that ensures compatibility with interface StorageEngine
-     * @param string $uri
+     * @param $uri
      * @return bool false
      */
     public function direct( $uri ) {
@@ -360,7 +360,7 @@ class StorageSettingsUI extends ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; use 'checked' to set whether the element is toggled on or not
 	 *
 	 * @return void
@@ -382,7 +382,7 @@ class StorageSettingsUI extends ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; use 'selected' to set the selected option
 	 * @param array $options The available options in the menu
 	 *
@@ -401,7 +401,7 @@ class StorageSettingsUI extends ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; pass a 'selected' attribute as an array to set the selected options
 	 * @param array $options The available options in the menu
 	 *
@@ -419,7 +419,7 @@ class StorageSettingsUI extends ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; requires a 'name' attribute
 	 *
 	 * @return void
@@ -440,7 +440,7 @@ class StorageSettingsUI extends ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; requires a 'name' attribute
 	 *
 	 * @return void
@@ -461,7 +461,7 @@ class StorageSettingsUI extends ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; requires a 'name' attribute
 	 *
 	 * @return void

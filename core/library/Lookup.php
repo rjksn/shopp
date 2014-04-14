@@ -899,7 +899,7 @@ class Lookup {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param string $type Table reference type from the error array
+	 * @param $type Table reference type from the error array
 	 * @param mixed $code
 	 * @return string Error message
 	 **/

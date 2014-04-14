@@ -220,13 +220,13 @@ class ShoppAdmin extends ShoppFlowController {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $name The internal reference name for the page
-	 * @param string $label The label displayed in the WordPress admin menu
-	 * @param string $controller The name of the controller to use for the page
-	 * @param string $parent The internal reference for the parent page
+	 * @param $name The internal reference name for the page
+	 * @param $label The label displayed in the WordPress admin menu
+	 * @param $controller The name of the controller to use for the page
+	 * @param $parent The internal reference for the parent page
 	 * @return void
 	 **/
-	private function addpage ( string $name, string $label, string $controller, string $parent = null) {
+	private function addpage ( $name, $label, $controller, $parent = null) {
 		$page = $this->pagename($name);
 
 		if ( isset($parent) ) $parent = $this->pagename($parent);
@@ -289,11 +289,11 @@ class ShoppAdmin extends ShoppFlowController {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $name The Shopp-internal name of the menu
-	 * @param string $menu The WordPress screen ID
+	 * @param $name The Shopp-internal name of the menu
+	 * @param $menu The WordPress screen ID
 	 * @return string The screen id of the given menu name
 	 **/
-	public function menu ( string $name, string $menu = null ) {
+	public function menu ( $name, $menu = null ) {
 
 		if ( isset($menu) ) $this->menus[ $name ] = $menu;
 		if ( isset($this->menus[ $name ]) ) return $this->menus[ $name ];
@@ -356,7 +356,7 @@ class ShoppAdmin extends ShoppFlowController {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $page The internal reference name for the page
+	 * @param $page The internal reference name for the page
 	 * @return string The fully qualified resource name for the admin page
 	 **/
 	public function pagename ($page) {
@@ -370,7 +370,7 @@ class ShoppAdmin extends ShoppFlowController {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $menu The current page_on_front menu
+	 * @param $menu The current page_on_front menu
 	 * @return string The page_on_front menu with the Shopp storefront page included
 	 **/
 	public function storefront_pages ($menu) {
@@ -414,7 +414,7 @@ class ShoppAdmin extends ShoppFlowController {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $page (optional) The fully qualified reference name for the page
+	 * @param $page (optional) The fully qualified reference name for the page
 	 * @return string|boolean The name of the controller or false if not available
 	 **/
 	public function controller ( $page = false ) {
@@ -524,7 +524,7 @@ class ShoppAdmin extends ShoppFlowController {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $id The ID of the help resource
+	 * @param $id The ID of the help resource
 	 * @return string The anchor tag for the help link
 	 **/
 	public function boxhelp ( $id ) {
@@ -581,7 +581,7 @@ class ShoppAdmin extends ShoppFlowController {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $pagename The full page reference name
+	 * @param $pagename The full page reference name
 	 * @return boolean True if the page is identified as an editor-related page
 	 **/
 	public function get_editor_pages ($pagenames) {
@@ -596,7 +596,7 @@ class ShoppAdmin extends ShoppFlowController {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $pagename The page's full reference name
+	 * @param $pagename The page's full reference name
 	 * @return boolean True if the page is identified as a settings page
 	 **/
 	public function get_settings_pages ($pagenames) {
@@ -790,7 +790,7 @@ class ShoppAdminPage {
 	public $controller = '';
 	public $parent = false;
 
-	public function __construct ( string $name, string $page, string $label, string $controller, string $parent = null ) {
+	public function __construct ( $name, $page, $label, $controller, $parent = null ) {
 		$this->name = $name;
 		$this->page = $page;
 		$this->label = $label;
@@ -819,7 +819,7 @@ class ShoppUI {
 		return hash('crc32b', ABSPATH . ShoppVersion::release());
 	}
 
-	public static function button ( string $button, string $name, array $options = array() ) {
+	public static function button ( $button, $name, array $options = array() ) {
 		$buttons = array(
 			'add' => array('class' => 'add', 'title' => Shopp::__('Add'), 'icon' => 'shoppui-plus', 'type' => 'submit'),
 			'delete' => array('class' => 'delete', 'title' => Shopp::__('Delete'), 'icon' => 'shoppui-minus', 'type' => 'submit')
@@ -850,7 +850,7 @@ class ShoppUI {
 	 *
 	 * @since 1.2
 	 *
-	 * @param string $screen The handle for the screen to add help to. This is usually the hook name returned by the add_*_page() functions.
+	 * @param $screen The handle for the screen to add help to. This is usually the hook name returned by the add_*_page() functions.
 	 * @param array $columns An array of columns with column IDs as the keys and translated column names as the values
 	 * @see get_column_headers(), print_column_headers(), get_hidden_columns()
 	 */
@@ -1056,15 +1056,15 @@ class ShoppUI {
 	/**
 	 * Registers a new metabox for use within Shopp admin screens.
 	 *
-	 * @param string $id
-	 * @param string $title
+	 * @param $id
+	 * @param $title
 	 * @param $callback callable function
-	 * @param string $posttype
-	 * @param string $context [optional]
-	 * @param string $priority [optional]
+	 * @param $posttype
+	 * @param $context [optional]
+	 * @param $priority [optional]
 	 * @param array $args [optional]
 	 */
-	public static function addmetabox(string $id, string $title, $callback, string $posttype, $context = 'advanced', $priority = 'default', array $args = null) {
+	public static function addmetabox($id, $title, $callback, $posttype, $context = 'advanced', $priority = 'default', array $args = null) {
 		self::$metaboxes[$id] = $callback;
 		$args = (array) $args;
 		array_unshift($args, $id);

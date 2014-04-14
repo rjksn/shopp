@@ -1447,7 +1447,7 @@ new ProductOptionsMenus(<?php printf("'select%s.product%d.options'",$select_coll
 		return $string;
 	}
 
-	public static function _variant_formatlabel ( string $format, $var ) {
+	public static function _variant_formatlabel ( $format, $var ) {
 		$data = (array)$var;
 
 		$label = $format;
@@ -1478,7 +1478,7 @@ new ProductOptionsMenus(<?php printf("'select%s.product%d.options'",$select_coll
 	 * @since 1.3
 	 *
 	 * @param ShoppProduct $O The product to get properties from
-	 * @param string $property The price property to use ('price' or 'saleprice')
+	 * @param $property The price property to use ('price' or 'saleprice')
 	 * @param boolean $taxoption The Theme API tax option given the the tag
 	 * @return array The minimum and maximum prices with or without taxes
 	 **/

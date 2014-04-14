@@ -309,7 +309,7 @@ class TextifyTag {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param string $content The content to calculate
+	 * @param $content The content to calculate
 	 * @return void
 	 **/
 	public function dimensions () {

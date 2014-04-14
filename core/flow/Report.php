@@ -384,9 +384,9 @@ abstract class ShoppReportFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param int $starts Starting timestamp
-	 * @param int $ends Ending timestamp
-	 * @param string $scale Scale of periods (hour, day, week, month, year)
+	 * @param $starts Starting timestamp
+	 * @param $ends Ending timestamp
+	 * @param $scale Scale of periods (hour, day, week, month, year)
 	 * @return void
 	 **/
 	public function timereport ($starts,$ends,$scale) {
@@ -409,9 +409,9 @@ abstract class ShoppReportFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param int $i The period iteration
-	 * @param int $starts The starting timestamp
-	 * @param string $scale Scale of periods (hour, day, week, month, year)
+	 * @param $i The period iteration
+	 * @param $starts The starting timestamp
+	 * @param $scale Scale of periods (hour, day, week, month, year)
 	 * @return array The date index and timestamp pair
 	 **/
 	static function timeindex ( $i, $starts, $scale ) {
@@ -451,7 +451,7 @@ abstract class ShoppReportFramework {
 	 *
 	 * @return string Date index column SQL statement
 	 **/
-	public function timecolumn ( string $column ) {
+	public function timecolumn ( $column ) {
 		$tzoffset = date('Z')/3600;
 		$column = "CONVERT_TZ($column,'+00:00','".($tzoffset>=0?'+':'-')."$tzoffset:00')";
 		switch (strtolower($this->options['scale'])) {
@@ -470,10 +470,10 @@ abstract class ShoppReportFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $column The column name
+	 * @param $column The column name
 	 * @return string The UNIX_TIMESTAMP SQL column fragment
 	 **/
-	static function unixtime ( string $column ) {
+	static function unixtime ( $column ) {
 		$tzoffset = date('Z')/3600;
 		return "UNIX_TIMESTAMP(CONVERT_TZ($column,'+00:00','".($tzoffset>=0?'+':'-')."$tzoffset:00'))";
 	}
@@ -484,12 +484,12 @@ abstract class ShoppReportFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param int $starts The starting timestamp
-	 * @param int $ends The ending timestamp
-	 * @param string $scale Scale of periods (hour, day, week, month, year)
+	 * @param $starts The starting timestamp
+	 * @param $ends The ending timestamp
+	 * @param $scale Scale of periods (hour, day, week, month, year)
 	 * @return int The number of periods
 	 **/
-	public function range ( integer $starts, integer $ends, $scale = 'day') {
+	public function range ( $starts, $ends, $scale = 'day') {
 		$oneday = 86400;
 		$years = date('Y',$ends)-date('Y',$starts);
 		switch (strtolower($scale)) {
@@ -528,11 +528,11 @@ abstract class ShoppReportFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param int $ts A weekday timestamp
+	 * @param $ts A weekday timestamp
 	 * @param array $formats The starting and ending date() formats
 	 * @return string Formatted week range label
 	 **/
-	static function weekrange ( int $ts, $formats=array('F j','F j Y') ) {
+	static function weekrange ( $ts, $formats=array('F j','F j Y') ) {
 		$weekday = date('w',$ts);
 		$startweek = $ts-($weekday*86400);
 		$endweek = $startweek+(6*86400);
@@ -547,8 +547,8 @@ abstract class ShoppReportFramework {
 	 * @since 1.3
 	 *
 	 * @param object $data The source data record
-	 * @param string $column The column key name
-	 * @param string $title The column title label
+	 * @param $column The column key name
+	 * @param $title The column title label
 	 * @param array $options The options for this report
 	 * @return void
 	 **/
@@ -574,8 +574,8 @@ abstract class ShoppReportFramework {
 	 * @since 1.3
 	 *
 	 * @param object $data The source data record
-	 * @param string $column The column key name
-	 * @param string $title The column title label
+	 * @param $column The column key name
+	 * @param $title The column title label
 	 * @param array $options The options for this report
 	 * @return void
 	 **/
@@ -641,7 +641,7 @@ abstract class ShoppReportFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $value The value to be rendered
+	 * @param $value The value to be rendered
 	 * @return void
 	 **/
 	public function value ($value) {
@@ -939,7 +939,7 @@ abstract class ShoppReportFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param int $series The index of the series to set the data for
+	 * @param $series The index of the series to set the data for
 	 * @param scalar $x The value for the X-axis
 	 * @param scalar $y The value for the Y-axis
 	 * @return void
@@ -954,7 +954,7 @@ abstract class ShoppReportFramework {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $label The label to use for the series (if none, use boolean false)
+	 * @param $label The label to use for the series (if none, use boolean false)
 	 * @param array $options The series settings (and possible the data)
 	 * @return void
 	 **/
@@ -1052,9 +1052,9 @@ class ShoppReportChart {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $axis The axis to setup (xaxis, yaxis)
-	 * @param int $range The number of periods on the axis
-	 * @param string $scale Scale of periods (hour, day, week, month, year)
+	 * @param $axis The axis to setup (xaxis, yaxis)
+	 * @param $range The number of periods on the axis
+	 * @param $scale Scale of periods (hour, day, week, month, year)
 	 * @return void
 	 **/
 	public function timeaxis ($axis,$range,$scale='day') {
@@ -1098,7 +1098,7 @@ class ShoppReportChart {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $label The label to use (if any)
+	 * @param $label The label to use (if any)
 	 * @param array $options Associative array of setting options
 	 * @return void
 	 **/
@@ -1127,7 +1127,7 @@ class ShoppReportChart {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param int $series The index number of the series to set data for
+	 * @param $series The index number of the series to set data for
 	 * @param scalar $x The data for the X-axis
 	 * @param scalar $y The data for the Y-axis
 	 * @param boolean $periods Settings flag for specified time period data

@@ -337,7 +337,7 @@ class ImageProcessor {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $color Decimal color value
+	 * @param $color Decimal color value
 	 * @return array RGB color values
 	 **/
 	private function hexrgb ( $color ) {

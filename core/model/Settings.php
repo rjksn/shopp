@@ -106,7 +106,7 @@ class ShoppSettings extends ShoppDatabaseObject {
 	 *
 	 * @since 1.0
 	 *
-	 * @param string $name Name of the setting
+	 * @param $name Name of the setting
 	 * @param mixed $value Value of the setting
 	 * @return boolean
 	 **/
@@ -128,7 +128,7 @@ class ShoppSettings extends ShoppDatabaseObject {
 	 *
 	 * @since 1.0
 	 *
-	 * @param string $name Name of the setting
+	 * @param $name Name of the setting
 	 * @param mixed $value Value of the setting to update
 	 * @return boolean
 	 **/
@@ -157,7 +157,7 @@ class ShoppSettings extends ShoppDatabaseObject {
 	 *
 	 * @since 1.0
 	 *
-	 * @param string $name Name of the setting to save
+	 * @param $name Name of the setting to save
 	 * @param mixed $value Value of the setting
 	 * @return void
 	 **/
@@ -176,7 +176,7 @@ class ShoppSettings extends ShoppDatabaseObject {
 	 *
 	 * @since 1.1
 	 *
-	 * @param string $name Name of the setting to save
+	 * @param $name Name of the setting to save
 	 * @param mixed $value Value of the setting
 	 * @return void
 	 **/
@@ -189,7 +189,7 @@ class ShoppSettings extends ShoppDatabaseObject {
 	 *
 	 * @since 1.0
 	 *
-	 * @param string $name Name of the setting to remove
+	 * @param $name Name of the setting to remove
 	 * @return boolean
 	 **/
 	public function delete ($name=false) {
@@ -214,7 +214,7 @@ class ShoppSettings extends ShoppDatabaseObject {
 	 *
 	 * @since 1.0
 	 *
-	 * @param string $name The name of the setting
+	 * @param $name The name of the setting
 	 * @return mixed The value of the setting
 	 **/
 	public function &get ( $name ) {
@@ -244,7 +244,7 @@ class ShoppSettings extends ShoppDatabaseObject {
 	 *
 	 * @since 1.0
 	 *
-	 * @param string $value A value to restore if necessary
+	 * @param $value A value to restore if necessary
 	 * @return mixed
 	 **/
 	public function restore ($value) {
@@ -305,7 +305,7 @@ class ShoppSettings extends ShoppDatabaseObject {
 	 *
 	 * @since 1.3
 	 *
-	 * @param string $legacy Set to anything but boolean false to attempt to lookup the version from the pre-1.2 settings table
+	 * @param $legacy Set to anything but boolean false to attempt to lookup the version from the pre-1.2 settings table
 	 * @return integer The installed database schema version number (0 means not installed)
 	 **/
 	public static function dbversion ( $legacy = false ) {

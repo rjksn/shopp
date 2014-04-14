@@ -86,7 +86,7 @@ class ShoppErrors {
 			if ( $error->remove ) unset($this->errors[$index]);
 	}
 
-	public function reporting ( integer $reporting = null ) {
+	public function reporting ( $reporting = null ) {
 		if ( isset($reporting) ) $this->reporting = $reporting;
 		return $this->reporting;
 	}
@@ -113,10 +113,10 @@ class ShoppErrors {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $level The maximum error level
+	 * @param $level The maximum error level
 	 * @return array A list of errors
 	 **/
-	public function get ( integer $level = null ) {
+	public function get ( $level = null ) {
 		if ( is_null($level) ) $level = SHOPP_DEBUG_ERR;
 
 		$errors = array();
@@ -132,10 +132,10 @@ class ShoppErrors {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $level The level of errors to retrieve
+	 * @param $level The level of errors to retrieve
 	 * @return array A list of errors
 	 **/
-	public function level ( integer $level = null ) {
+	public function level ( $level = null ) {
 		if ( is_null($level) ) $level = SHOPP_ALL_ERR;
 
 		$errors = array();
@@ -150,10 +150,10 @@ class ShoppErrors {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $code The name of the error code
+	 * @param $code The name of the error code
 	 * @return ShoppError The error object
 	 **/
-	public function code ( string $code ) {
+	public function code ( $code ) {
 		if ( ! empty($code) && isset($this->errors[ $code ]) )
 			return $this->errors[ $code ];
 	}
@@ -164,10 +164,10 @@ class ShoppErrors {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $source The class name of the originating object of errors
+	 * @param $source The class name of the originating object of errors
 	 * @return array A list of errors
 	 **/
-	public function source ( string $source ) {
+	public function source ( $source ) {
 		if ( empty($source) ) return array();
 
 		$errors = array();
@@ -182,10 +182,10 @@ class ShoppErrors {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param int $level The maximum level to look for errors in
+	 * @param $level The maximum level to look for errors in
 	 * @return void
 	 **/
-	public function exist ( integer $level = null ) {
+	public function exist ( $level = null ) {
 		if ( is_null($level) ) $level = SHOPP_DEBUG_ERR;
 
 		$errors = array();
@@ -227,10 +227,10 @@ class ShoppErrors {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param int $number The error type
-	 * @param string $message The PHP error message
-	 * @param string $file The file the error occurred in
-	 * @param int $line The line number the error occurred at in the file
+	 * @param $number The error type
+	 * @param $message The PHP error message
+	 * @param $file The file the error occurred in
+	 * @param $line The line number the error occurred at in the file
 	 * @return boolean
 	 **/
 	public function php ( $number, $message, $file, $line ) {
@@ -362,7 +362,7 @@ class ShoppError {
 	 *
 	 * @param boolean $remove (optional) (Default true) Removes the error after retrieving it
 	 * @param boolean $source Prefix the error with the source object where the error was triggered
-	 * @param string $delimiter The delimeter used to join multiple error messages
+	 * @param $delimiter The delimeter used to join multiple error messages
 	 * @return string A collection of concatenated error messages
 	 **/
 	public function message ( $remove = false, $source = false, $delimiter = "\n" ) {
@@ -444,7 +444,7 @@ class ShoppErrorLogging {
 	 *
 	 * @return integer The logging level
 	 **/
-	public function loglevel ( integer $level = null ) {
+	public function loglevel ( $level = null ) {
 		if ( isset($level) ) $this->loglevel = $level;
 		return $this->loglevel;
 	}
@@ -491,8 +491,8 @@ class ShoppErrorLogging {
 	 * @since 1.0
 	 * @version 1.2
 	 *
-	 * @param int $lines The number of lines to get from the end of the log file
-	 * @param int $buffer Buffer size in bytes to handle each iteration
+	 * @param $lines The number of lines to get from the end of the log file
+	 * @param $buffer Buffer size in bytes to handle each iteration
 	 * @return array List of log file lines
 	 **/
 	public function tail( $lines = 100, $buffer = 4096 ) {
@@ -552,7 +552,7 @@ class ShoppErrorNotification {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $recipients List of email addresses
+	 * @param $recipients List of email addresses
 	 * @param array $types The types of errors to report
 	 * @return void
 	 **/

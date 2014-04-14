@@ -357,10 +357,10 @@ class ShoppStorefront extends ShoppFlowController {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param string $template Template file path
+	 * @param $template Template file path
 	 * @return void
 	 **/
-	public function maintenance ( string $template ) {
+	public function maintenance ( $template ) {
 		// Only run if in maintenance mode
 		if ( ! is_shopp_page() ) return $template;
 		if ( ! Shopp::maintenance() ) return $template;
@@ -406,10 +406,10 @@ class ShoppStorefront extends ShoppFlowController {
 	 * @since 1.2
 	 * @version 1.2.1
 	 *
-	 * @param string $template The template
+	 * @param $template The template
 	 * @return string The output of the templates
 	 **/
-	public function pages ( string $template ) {
+	public function pages ( $template ) {
 		// Catch smart collection pages
 		if ( is_shopp_collection() )
 			return $this->collections($template);
@@ -431,7 +431,7 @@ class ShoppStorefront extends ShoppFlowController {
 		return locate_template( $Page->templates() );
 	}
 
-	public function collections ( string $template ) {
+	public function collections ( $template ) {
 		if ( ! is_shopp_collection() ) return $template;
 
 		$Page = new ShoppCollectionPage();
@@ -447,7 +447,7 @@ class ShoppStorefront extends ShoppFlowController {
 	 * @since 1.2
 	 * @version 1.2.1
 	 *
-	 * @param string $template The template
+	 * @param $template The template
 	 * @return string The output of the templates
 	 **/
 	public function single ($template) {
@@ -669,7 +669,7 @@ class ShoppStorefront extends ShoppFlowController {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $url The current url
+	 * @param $url The current url
 	 * @return string The canonical url
 	 **/
 	public function canonurls ($url) {
@@ -976,11 +976,11 @@ class ShoppStorefront extends ShoppFlowController {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param string $request The query request name associated with the page
-	 * @param string $label The label (title) of the page
+	 * @param $request The query request name associated with the page
+	 * @param $label The label (title) of the page
 	 * @param boolean $visible Flag to show or hide the page in the menus
 	 * @param string|array $callback The function callback for pre-page processing
-	 * @param int $position The position of the page in the account menu list
+	 * @param $position The position of the page in the account menu list
 	 * @return void
 	 **/
 	public function add_dashboard ( $request, $label, $visible = true, $callback = false, $position = 0 ) {
@@ -1017,7 +1017,7 @@ class ShoppStorefront extends ShoppFlowController {
 
 	}
 
-	public function autowrap ( string $content ) {
+	public function autowrap ( $content ) {
 		if ( ! in_array(get_the_ID(), $this->shortcoded) ) return $content;
 		return ShoppStorefront::wrapper($content);
 	}
@@ -1030,7 +1030,7 @@ class ShoppStorefront extends ShoppFlowController {
 	 *
 	 * @return string The template file being loaded
 	 **/
-	public static function intemplate ( string $template = null ) {
+	public static function intemplate ( $template = null ) {
 		if ( isset($template) )
 			self::$template = basename($template);
 		if ( empty(self::$template) ) return '';
@@ -1043,11 +1043,11 @@ class ShoppStorefront extends ShoppFlowController {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $string The content markup to be wrapped
+	 * @param $string The content markup to be wrapped
 	 * @param array $classes CSS classes to add to the container
 	 * @return string The wrapped markup
 	 **/
-	static function wrapper ( string $string ) {
+	static function wrapper ( $string ) {
 
 		$classes = array('shopp_page');
 

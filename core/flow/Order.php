@@ -524,7 +524,7 @@ class ShoppOrder {
 	 * @author Jonathan Davis
 	 * @since 1.2.2
 	 *
-	 * @param int $purchaseid The Purchase id to attach the purchased records to
+	 * @param $purchaseid The Purchase id to attach the purchased records to
 	 * @return void
 	 **/
 	public function items ( $purchaseid ) {

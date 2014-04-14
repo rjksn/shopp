@@ -121,12 +121,12 @@ class ShoppLogin {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $id The supplied identifying credential
-	 * @param string $password The password provided for login authentication
-	 * @param string $type (optional) Type of identifying credential provided (defaults to 'email')
+	 * @param $id The supplied identifying credential
+	 * @param $password The password provided for login authentication
+	 * @param $type (optional) Type of identifying credential provided (defaults to 'email')
 	 * @return void
 	 **/
-	public function auth ( string $id, string $password, $type = 'email') {
+	public function auth ( $id, $password, $type = 'email') {
 
 		do_action('shopp_auth');
 
@@ -197,7 +197,7 @@ class ShoppLogin {
 	 * @param $cookie N/A
 	 * @param $expire N/A
 	 * @param $expiration N/A
-	 * @param int $user_id The WordPress user ID
+	 * @param $user_id The WordPress user ID
 	 * @return void
 	 **/
 	public function wplogin ( $cookie, $expire, $expiration, $id ) {

@@ -21,7 +21,7 @@ defined( 'WPINC' ) || header( 'HTTP/1.1 403' ) & exit; // Prevent direct access
  * @author John Dillick
  * @since 1.2
  *
- * @param string $name The name of the setting
+ * @param $name The name of the setting
  * @return mixed the value saved to the named setting, or false if not set.  returns null if empty name is provided
  **/
 function shopp_setting ( $name ) {
@@ -43,7 +43,7 @@ function shopp_setting ( $name ) {
  * @author Jonathan Davis
  * @since 1.2
  *
- * @param string $name The name of the setting
+ * @param $name The name of the setting
  * @return boolean True is enabled, false is disabled
  **/
 function shopp_setting_enabled ( $name ) {
@@ -57,7 +57,7 @@ function shopp_setting_enabled ( $name ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param string $name The name of the setting that is to be stored.
+ * @param $name The name of the setting that is to be stored.
  * @param mixed $value The value saved to the named setting.
  * @return bool true on success, false on failure.
  **/
@@ -77,7 +77,7 @@ function shopp_set_setting ( $name, $value ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param string $name Name of the Shopp setting to be deleted
+ * @param $name Name of the Shopp setting to be deleted
  * @return bool true on success, false on failure
  **/
 function shopp_rmv_setting ($name) {
@@ -94,7 +94,7 @@ function shopp_rmv_setting ($name) {
  * @author Jonathan Davis
  * @since 1.2
  *
- * @param string $name The name of the setting that is to be stored.
+ * @param $name The name of the setting that is to be stored.
  * @param mixed $value The value saved to the named setting.
  * @return bool true on success, false on failure.
  **/
@@ -122,7 +122,7 @@ function shopp_set_formsettings () {
  * @author Jonathan Davis
  * @since 1.2
  *
- * @param string $name The name of the setting that is to be stored.
+ * @param $name The name of the setting that is to be stored.
  * @param array $settings A named array of settings and values, accepts: width, height, size, fit, quality, sharpen, bg
  * @return bool true on success, false on failure.
  **/

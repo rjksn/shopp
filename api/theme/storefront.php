@@ -503,7 +503,7 @@ class ShoppStorefrontThemeAPI implements ShoppAPI {
 	 * @since 1.3.1
 	 *
 	 * @param array $terms The list of terms to use
-	 * @param int $depth The depth to render
+	 * @param $depth The depth to render
 	 * @param array $options The list of options
 	 * @return string The drop-down menu markup
 	 **/
@@ -535,7 +535,7 @@ class ShoppStorefrontThemeAPI implements ShoppAPI {
 	 * @since 1.3.1
 	 *
 	 * @param array $terms The list of terms to use
-	 * @param int $depth The depth to render
+	 * @param $depth The depth to render
 	 * @param array $options The list of options
 	 * @return string The drop-down menu markup
 	 **/
@@ -1133,7 +1133,7 @@ class ShoppCategoryWalker extends Walker {
 	 *
 	 * @since 2.1.0
 	 *
-	 * @param string $output Passed by reference. Used to append additional content.
+	 * @param $output Passed by reference. Used to append additional content.
 	 * @param int    $depth  Depth of category. Used for tab indentation.
 	 * @param array  $args   An array of arguments. Will only append content if style argument value is 'list'.
 	 *                       @see wp_list_categories()
@@ -1153,7 +1153,7 @@ class ShoppCategoryWalker extends Walker {
 	 *
 	 * @since 2.1.0
 	 *
-	 * @param string $output Passed by reference. Used to append additional content.
+	 * @param $output Passed by reference. Used to append additional content.
 	 * @param int    $depth  Depth of category. Used for tab indentation.
 	 * @param array  $args   An array of arguments. Will only append content if style argument value is 'list'.
 	 *                       @wsee wp_list_categories()
@@ -1173,7 +1173,7 @@ class ShoppCategoryWalker extends Walker {
 	 *
 	 * @since 2.1.0
 	 *
-	 * @param string $output   Passed by reference. Used to append additional content.
+	 * @param $output   Passed by reference. Used to append additional content.
 	 * @param object $category Category data object.
 	 * @param int    $depth    Depth of category in reference to parents. Default 0.
 	 * @param array  $args     An array of arguments. @see wp_list_categories()
@@ -1233,7 +1233,7 @@ class ShoppCategoryWalker extends Walker {
 	 *
 	 * @since 2.1.0
 	 *
-	 * @param string $output Passed by reference. Used to append additional content.
+	 * @param $output Passed by reference. Used to append additional content.
 	 * @param object $page   Not used.
 	 * @param int    $depth  Depth of category. Not used.
 	 * @param array  $args   An array of arguments. Only uses 'list' for whether should append to output. @see wp_list_categories()
@@ -1264,7 +1264,7 @@ class ShoppCategoryDropdownWalker extends Walker {
 	 *
 	 * @since 1.3.1
 	 *
-	 * @param string $output   Passed by reference. Used to append additional content.
+	 * @param $output   Passed by reference. Used to append additional content.
 	 * @param object $category Category data object.
 	 * @param int    $depth    Depth of category. Used for padding.
 	 * @param array  $args     Uses 'selected' and 'products' keys, if they exist. @see wp_dropdown_categories()

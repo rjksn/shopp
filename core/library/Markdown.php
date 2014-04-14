@@ -467,8 +467,8 @@ class MarkdownBlockquote extends MarkdownFilter {
      * Pass given text through the filter and return result.
      *
      * @see MarkdownFilter::filter()
-     * @param string $text
-     * @return string $text
+     * @param $text
+     * @return $text
      */
     public function filter(MarkdownText $text) {
         $stack = null;
@@ -563,8 +563,8 @@ class MarkdownCode extends MarkdownFilter {
      * Pass given text through the filter and return result.
      *
      * @see MarkdownFilter::filter()
-     * @param string $text
-     * @return string $text
+     * @param $text
+     * @return $text
      */
     public function filter(MarkdownText $text) {
         $insideCodeBlock = false;
@@ -625,8 +625,8 @@ class MarkdownEmphasis extends MarkdownFilter {
      * Pass given text through the filter and return result.
      *
      * @see MarkdownFilter::filter()
-     * @param string $text
-     * @return string $text
+     * @param $text
+     * @return $text
      */
     public function filter(MarkdownText $text) {
         foreach ($text as $no => $line) {
@@ -683,8 +683,8 @@ class MarkdownEntities extends MarkdownFilter {
      * Pass given text through the filter and return result.
      *
      * @see MarkdownFilter::filter()
-     * @param string $text
-     * @return string $text
+     * @param $text
+     * @return $text
      */
     public function filter(MarkdownText $text) {
         foreach($text as $no => $line) {
@@ -717,8 +717,8 @@ class MarkdownHeaderAtx extends MarkdownFilter {
      * Pass given text through the filter and return result.
      *
      * @see MarkdownFilter::filter()
-     * @param string $text
-     * @return string $text
+     * @param $text
+     * @return $text
      */
     public function filter(MarkdownText $text) {
         foreach($text as $no => $line) {
@@ -754,8 +754,8 @@ class MarkdownHeaderSetext extends MarkdownFilter {
      * Pass given text through the filter and return result.
      *
      * @see MarkdownFilter::filter()
-     * @param string $text
-     * @return string $text
+     * @param $text
+     * @return $text
      */
     public function filter(MarkdownText $text) {
         foreach($text as $no => $line) {
@@ -798,8 +798,8 @@ class MarkdownHr extends MarkdownFilter {
      * Pass given text through the filter and return result.
      *
      * @see MarkdownFilter::filter()
-     * @param string $text
-     * @return string $text
+     * @param $text
+     * @return $text
      */
     public function filter(MarkdownText $text) {
         foreach($text as $no => $line) {
@@ -837,8 +837,8 @@ class MarkdownImg extends MarkdownLink {
      * Pass given text through the filter and return result.
      *
      * @see MarkdownFilter::filter()
-     * @param string $text
-     * @return string $text
+     * @param $text
+     * @return $text
      */
     public function filter(MarkdownText $text) {
         $this->_mark = '!';
@@ -867,8 +867,8 @@ class MarkdownLinebreak extends MarkdownFilter {
      * Pass given text through the filter and return result.
      *
      * @see MarkdownFilter::filter()
-     * @param string $text
-     * @return string $text
+     * @param $text
+     * @return $text
      */
     public function filter(MarkdownText $text) {
         foreach($text as $no => $line) {
@@ -904,8 +904,8 @@ class MarkdownLink extends MarkdownFilter {
      * Pass given text through the filter and return result.
      *
      * @see MarkdownFilter::filter()
-     * @param string $text
-     * @return string $text
+     * @param $text
+     * @return $text
      */
     public function filter(MarkdownText $text) {
         $links = array();
@@ -1007,8 +1007,8 @@ abstract class MarkdownLists extends MarkdownFilter {
      * Pass given text through the filter and return result.
      *
      * @see MarkdownFilter::filter()
-     * @param string $text
-     * @return string $text
+     * @param $text
+     * @return $text
      */
     public function filter(MarkdownText $text) {
         $stack = new MarkdownStack();
@@ -1203,8 +1203,8 @@ class MarkdownParagraph extends MarkdownFilter {
      * Pass given text through the filter and return result.
      *
      * @see MarkdownFilter::filter()
-     * @param string $text
-     * @return string $text
+     * @param $text
+     * @return $text
      */
     public function filter(MarkdownText $text) {
         // FIXME
@@ -1270,8 +1270,8 @@ class MarkdownUnescape extends MarkdownFilter {
      * Pass given text through the filter and return result.
      *
      * @see MarkdownFilter::filter()
-     * @param string $text
-     * @return string $text
+     * @param $text
+     * @return $text
      */
     public function filter(MarkdownText $text) {
         foreach($text as $no => $line) {

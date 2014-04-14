@@ -35,11 +35,11 @@ class ListFramework implements Iterator {
 	 * @since 1.2
 	 * @version 1.3
 	 *
-	 * @param string $key The key to add the entry to
+	 * @param $key The key to add the entry to
 	 * @param mixed $entry The entry to add to the list
 	 * @return mixed Returns the entry
 	 **/
-	public function &add ( string $key, $entry ) {
+	public function &add ( $key, $entry ) {
 		$this->_list[$key] = $entry;
 		$this->_added = $key;
 		return $this->get($key);
@@ -51,10 +51,10 @@ class ListFramework implements Iterator {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $key The key to set as the added record
+	 * @param $key The key to set as the added record
 	 * @return The added entry or false if no added entries
 	 **/
-	public function added ( string $key = null ) {
+	public function added ( $key = null ) {
 		if ( ! is_null($key) && $this->exists($key) )
 			$this->_added = $key;
 		if ( $this->exists($this->_added) )
@@ -83,7 +83,7 @@ class ListFramework implements Iterator {
 	 * @since 1.3
 	 *
 	 * @param callback $callback A callback function to use for sorting instead of the default key sorting
-	 * @param string $orderby (optional) The property to use for sorting ('keys' to sort by keys, otherwise uses the values)
+	 * @param $orderby (optional) The property to use for sorting ('keys' to sort by keys, otherwise uses the values)
 	 * @return boolean TRUE on success, FALSE on failure
 	 **/
 	public function sort ( $callback = null, $orderby = false ) {
@@ -100,10 +100,10 @@ class ListFramework implements Iterator {
 	 * @since 1.2
 	 * @version 1.3
 	 *
-	 * @param string $key $var Description...
+	 * @param $key $var Description...
 	 * @return boolean True if successful, false otherwise
 	 **/
-	public function update ( string $key, $entry ) {
+	public function update ( $key, $entry ) {
 		if ( ! $this->exists($key) ) return false;
 		if ( is_array($this->_list[ $key ]) && is_array($entry) )
 			$entry = array_merge($this->_list[$key],$entry);
@@ -143,7 +143,7 @@ class ListFramework implements Iterator {
 	 * @since 1.2
 	 * @version 1.3
 	 *
-	 * @param string $key The key of the entry to get
+	 * @param $key The key of the entry to get
 	 * @return mixed A reference to the entry, or false if not found
 	 **/
 	public function &get ( $key ) {
@@ -160,7 +160,7 @@ class ListFramework implements Iterator {
 	 * @since 1.2
 	 * @version 1.3
 	 *
-	 * @param string $key The key of the entry to check
+	 * @param $key The key of the entry to check
 	 * @return boolean True if it exists, false otherwise
 	 **/
 	public function exists ($key) {
@@ -175,7 +175,7 @@ class ListFramework implements Iterator {
 	 * @since 1.2
 	 * @version 1.3
 	 *
-	 * @param string $key The key of the entry to remove
+	 * @param $key The key of the entry to remove
 	 * @return boolean True if successful, false otherwise
 	 **/
 	public function remove ($key) {
@@ -430,7 +430,7 @@ class FormPostFramework {
 	protected $form = array();
 	protected $defaults = array();
 
-	public function form ( string $key = null, boolean $latest = null ) {
+	public function form ( $key = null, boolean $latest = null ) {
 
 		if ( true === $latest ) $this->updateform();
 
@@ -468,7 +468,7 @@ class SubscriberFramework {
 	 * @since 1.2
 	 *
 	 * @param Object $target The target class/object
-	 * @param string $method The callback method
+	 * @param $method The callback method
 	 * @return void
 	 **/
 	public function subscribe ( $target, $method) {

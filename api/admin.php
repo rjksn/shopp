@@ -21,14 +21,14 @@ defined( 'WPINC' ) || header( 'HTTP/1.1 403' ) & exit; // Prevent direct access
  * @author Jonathan Davis
  * @since 1.3
  *
- * @param string $label	The translated label to use for the menu
- * @param string $page The Shopp-internal menu page name (plugin prefix will be automatically added)
- * @param integer $position The index position of where to add the menu
+ * @param $label	The translated label to use for the menu
+ * @param $page The Shopp-internal menu page name (plugin prefix will be automatically added)
+ * @param $position The index position of where to add the menu
  * @param mixed $handler The callback handler to use to handle the page
- * @param string $access The access capability required to see the menu
+ * @param $access The access capability required to see the menu
  * @return integer The position the menu was added
  **/
-function shopp_admin_add_menu ( string $label, string $page, integer $position = null, $handler = false, string $access = null, string $icon = null ) {
+function shopp_admin_add_menu ( $label, $page, $position = null, $handler = false, $access = null, $icon = null ) {
 
 	global $menu;
 	$Admin = ShoppAdmin();
@@ -68,14 +68,14 @@ function shopp_admin_add_menu ( string $label, string $page, integer $position =
  * @author Jonathan Davis
  * @since 1.3
  *
- * @param string $label	The translated label to use for the menu
- * @param string $page The Shopp-internal menu page name (plugin prefix will be automatically added)
- * @param string $menu The Shopp-internal menu page name to append the submenu to
+ * @param $label	The translated label to use for the menu
+ * @param $page The Shopp-internal menu page name (plugin prefix will be automatically added)
+ * @param $menu The Shopp-internal menu page name to append the submenu to
  * @param mixed $handler The callback handler to use to handle the page
- * @param string $access The access capability required to see the menu
+ * @param $access The access capability required to see the menu
  * @return integer The position the menu was added
  **/
-function shopp_admin_add_submenu ( string $label, string $page, string $menu = null, $handler = false, string $access = null ) {
+function shopp_admin_add_submenu ( $label, $page, $menu = null, $handler = false, $access = null ) {
 
 	$Admin = ShoppAdmin();
 	if ( is_null($menu) ) $Admin->mainmenu();

@@ -606,7 +606,7 @@ class ProductTaxonomy extends ProductCollection {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $slug The slug name to load
+	 * @param $slug The slug name to load
 	 * @return boolean loaded successfully or not
 	 **/
 	public function loadby ( $id, $key = 'id' ) {
@@ -1259,7 +1259,7 @@ class ProductCategory extends ProductTaxonomy {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $next (optional) Which product to get (-1 for previous, defaults to 1 for next)
+	 * @param $next (optional) Which product to get (-1 for previous, defaults to 1 for next)
 	 * @return object The Product object
 	 **/
 	public function adjacent_product($next=1) {
@@ -1496,7 +1496,7 @@ class SmartCollection extends ProductCollection {
 		return Shopp::__('Collection');
 	}
 
-	public static function slugs ( string $class ) {
+	public static function slugs ( $class ) {
 		return apply_filters( 'shopp_' . strtolower($class) . '_collection_slugs', get_class_property($class, 'slugs') );
 	}
 

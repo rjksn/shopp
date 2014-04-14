@@ -220,7 +220,7 @@ class Shopping extends SessionObject {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $class The name of an object class
+	 * @param $class The name of an object class
 	 * @param Object $ref (optional) The reference to an object to be replaced
 	 * @return Object The object reference
 	 **/
@@ -248,7 +248,7 @@ class Shopping extends SessionObject {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $property Property name to use
+	 * @param $property Property name to use
 	 * @param object $data The data to store
 	 * @return void
 	 **/

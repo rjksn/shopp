@@ -144,8 +144,8 @@ abstract class GatewayFramework {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $name The name of a setting
-	 * @param string $name... (optional) Additional setting names to initialize
+	 * @param $name The name of a setting
+	 * @param $name... (optional) Additional setting names to initialize
 	 * @return void
 	 **/
 	public function setup () {
@@ -217,8 +217,8 @@ abstract class GatewayFramework {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $data The encoded data to send
-	 * @param string $url (optional) The API endpoint URL to connect to
+	 * @param $data The encoded data to send
+	 * @param $url (optional) The API endpoint URL to connect to
 	 * @param array $options (optional) WP_Http options
 	 * @return string Raw response
 	 **/
@@ -339,7 +339,7 @@ abstract class GatewayFramework {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param string|float|int $amount The amount (or name of the amount total) to format
+	 * @param string|float|$amount The amount (or name of the amount total) to format
 	 * @return string Formatted amount
 	 **/
 	public function amount ( $amount, array $format = array() ) {
@@ -433,8 +433,8 @@ abstract class GatewayFramework {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $module The module class name
-	 * @param string $name The formal name of the module
+	 * @param $module The module class name
+	 * @param $name The formal name of the module
 	 * @return void
 	 **/
 	public function initui ( $module, $name ) {
@@ -539,7 +539,7 @@ class GatewayModules extends ModuleLoader {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $module Activated module class name
+	 * @param $module Activated module class name
 	 * @return void
 	 **/
 	public function properties ( $module ) {
@@ -675,7 +675,7 @@ class GatewaySettingsUI extends ModuleSettingsUI {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $column The table column to add the element to
+	 * @param $column The table column to add the element to
 	 * @param array $attributes Element attributes; pass a 'selected' attribute as an array to set the selected payment cards
 	 * @param array $options The available payment cards in the menu
 	 *
@@ -812,7 +812,7 @@ class PayCard {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $number The PAN number to validate
+	 * @param $number The PAN number to validate
 	 * @return boolean True if valid, false otherwise
 	 **/
 	public static function checksum ( $number ) {
@@ -832,7 +832,7 @@ class PayCard {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $value The PAN value to sanitize
+	 * @param $value The PAN value to sanitize
 	 * @return string The digit-only string
 	 **/
 	public static function sanitize ( $value ) {
@@ -849,7 +849,7 @@ class PayCard {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $value The (possible) PAN id
+	 * @param $value The (possible) PAN id
 	 * @return string The truncated value
 	 **/
 	public static function truncate ( $value ) {
@@ -865,11 +865,11 @@ class PayCard {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $value The PAN value to mask
-	 * @param string $value The masking character to use
+	 * @param $value The PAN value to mask
+	 * @param $value The masking character to use
 	 * @return string The masked PAN value
 	 **/
-	public static function mask ( $value, string $mask = null ) {
+	public static function mask ( $value, $mask = null ) {
 		if ( empty($value) ) return $value;
 
 		if ( ! isset($mask) ) $mask = 'X';

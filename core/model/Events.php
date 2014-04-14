@@ -459,7 +459,7 @@ defined( 'WPINC' ) || header( 'HTTP/1.1 403' ) & exit; // Prevent direct access
   	* @author Jonathan Davis, John Dillick
   	* @since 1.2.1
   	*
-  	* @param int $id (optional) the purchased item id
+  	* @param $id (optional) the purchased item id
   	* @return mixed if id is provided, the allocated object, else array of allocated objects
   	**/
 	public function allocated ( $id = false ) {

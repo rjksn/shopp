@@ -73,7 +73,7 @@ class ShoppCartItem {
 	 *
 	 * @param object $Product Product object
 	 * @param mixed $pricing A list of price IDs; The option key of a price object; or a Price object
-	 * @param int $category (optional)The breadcrumb category ID where the product was added from
+	 * @param $category (optional)The breadcrumb category ID where the product was added from
 	 * @param array $data (optional) Custom data associated with the line item
 	 * @param array $addons (optional) A set of addon options
 	 * @return void
@@ -96,7 +96,7 @@ class ShoppCartItem {
 	 *
 	 * @param object $Product Product object
 	 * @param mixed $pricing A list of price IDs; The option key of a price object; or a Price object
-	 * @param int $category (optional)The breadcrumb category ID where the product was added from
+	 * @param $category (optional)The breadcrumb category ID where the product was added from
 	 * @param array $data (optional) Custom data associated with the line item
 	 * @param array $addons (optional) A set of addon options
 	 * @return void
@@ -317,7 +317,7 @@ class ShoppCartItem {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $qty The quantity to set the line item to
+	 * @param $qty The quantity to set the line item to
 	 * @return void
 	 **/
 	public function quantity ( $qty = false ) {
@@ -384,7 +384,7 @@ class ShoppCartItem {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $selection (optional) The selected price option
+	 * @param $selection (optional) The selected price option
 	 * @param float $taxrate (optional) The tax rate to apply to pricing information
 	 * @return string
 	 **/
@@ -908,7 +908,7 @@ class ShoppCartItem {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param integer $quantity The taxable quantity of items
+	 * @param $quantity The taxable quantity of items
 	 * @return void
 	 **/
 	public function taxes ( $quantity = 1 ) {

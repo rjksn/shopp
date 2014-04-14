@@ -299,8 +299,8 @@ class ImageServer {
 	 * @author Jonathan Davis
 	 * @since 1.3
 	 *
-	 * @param string $file The name of the file
-	 * @param int $length The size of the file in bytes (strlen)
+	 * @param $file The name of the file
+	 * @param $length The size of the file in bytes (strlen)
 	 * @return void
 	 **/
 	public function headers ( $file, $length ) {

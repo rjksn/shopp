@@ -23,9 +23,9 @@ defined( 'WPINC' ) || header( 'HTTP/1.1 403' ) & exit; // Prevent direct access
  * @author John Dillick
  * @since 1.2
  *
- * @param int $id Object id to attach the image asset to.
- * @param string $context the object type the image asset will be attached to.  This can be product or category
- * @param string $file Full or correct relative path to the image file.
+ * @param $id Object id to attach the image asset to.
+ * @param $context the object type the image asset will be attached to.  This can be product or category
+ * @param $file Full or correct relative path to the image file.
  * @return mixed false on failure, int image asset id on success.
  **/
 function shopp_add_image ( $id, $context, $file ) {
@@ -84,8 +84,8 @@ function shopp_add_image ( $id, $context, $file ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $image the image id
- * @param string $context the object type the image asset is attached to.  This can be product or category
+ * @param $image the image id
+ * @param $context the object type the image asset is attached to.  This can be product or category
  * @return mixed false on failure, int image asset id on success.
  **/
 function shopp_rmv_image ( $image, $context ) {
@@ -119,8 +119,8 @@ function shopp_rmv_image ( $image, $context ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product Product id to attach the image asset to.
- * @param string $file Full or correct relative path to the image file.
+ * @param $product Product id to attach the image asset to.
+ * @param $file Full or correct relative path to the image file.
  * @return mixed false on failure, int image asset id on success.
  **/
 function shopp_add_product_image ( $product, $file ) {
@@ -135,7 +135,7 @@ function shopp_add_product_image ( $product, $file ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $image image id to remove from product.
+ * @param $image image id to remove from product.
  * @return bool false on failure, true on success.
  **/
 function shopp_rmv_product_image ( $image ) {
@@ -150,7 +150,7 @@ function shopp_rmv_product_image ( $image ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $image image id to remove from product category.
+ * @param $image image id to remove from product category.
  * @return bool false on failure, true on success.
  **/
 function shopp_rmv_category_image ( $image ) {
@@ -165,8 +165,8 @@ function shopp_rmv_category_image ( $image ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $category Category id to attach the image asset to.
- * @param string $file Full or correct relative path to the image file.
+ * @param $category Category id to attach the image asset to.
+ * @param $file Full or correct relative path to the image file.
  * @return mixed false on failure, int image asset id on success.
  **/
 function shopp_add_category_image ( $category, $file ) {
@@ -181,9 +181,9 @@ function shopp_add_category_image ( $category, $file ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product id of the product the download asset will be added to
- * @param string $file full or correct relative path to the download file asset.
- * @param int $variant id of the variant the download asset will be attached to.  For products with variants, this is a required parameter.
+ * @param $product id of the product the download asset will be added to
+ * @param $file full or correct relative path to the download file asset.
+ * @param $variant id of the variant the download asset will be attached to.  For products with variants, this is a required parameter.
  * @return mixed false of failure, the new download asset id on success
  **/
 function shopp_add_product_download ( $product, $file, $variant = false ) {
@@ -258,7 +258,7 @@ function shopp_add_product_download ( $product, $file, $variant = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $download the product asset id
+ * @param $download the product asset id
  * @return bool true on success, false on failure
  **/
 function shopp_rmv_product_download ( $download ) {

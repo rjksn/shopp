@@ -262,7 +262,7 @@ function shopp_add_product ( $data = array() ) {
  * using other API functions that exist for those specific purposes.
  *
  * @since 1.3
- * @param int $product (required) ShoppProduct object or ID
+ * @param $product (required) ShoppProduct object or ID
  * @param array $data (required) associative array structure representing product properties
  * @return Product the created product object, or boolean false on a failure.
  **/
@@ -292,7 +292,7 @@ function shopp_update_product ( $product, $data = array() ) {
  * @since 1.3
  *
  * @param mixed $product (required) the product id to load.  Also possible to specify the name or slug.  See the $load_by parameter.
- * @param string $load_by (optional default=id) id for loading the product by id, name for loading by name, and slug for loading by slug
+ * @param $load_by (optional default=id) id for loading the product by id, name for loading by name, and slug for loading by slug
  * @return Product The duplicated product object, false on failure
  **/
 function shopp_duplicate_product ( $product = false, $load_by = 'id' ) {
@@ -368,7 +368,7 @@ function shopp_publish_product ( $product = false, $flag = true, $timestamp = fa
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product the product id
+ * @param $product the product id
  * @return bool true on success, false on failure
  **/
 function shopp_rmv_product ( $product = false ) {
@@ -385,7 +385,7 @@ function shopp_rmv_product ( $product = false ) {
  * @since 1.2
  *
  * @param array $data the associative array being used to build the product object
- * @param string $types (optional default:data) Sets the _type that will be evaluated for proper types.  $_data is the top level, and each non-built in type is described
+ * @param $types (optional default:data) Sets the _type that will be evaluated for proper types.  $_data is the top level, and each non-built in type is described
  * in subsequent _type arrays
  * @param array $problems array of problems that have been found in the data through recursive calls
  * @return array list of problems with the data preventing proper product object construction
@@ -580,7 +580,7 @@ function _validate_product_data ( $data, $types = 'data', $problems = array() ) 
  * @since 1.2
  *
  * @param mixed $product (required) the product id to load.  Also possible to specify the name or slug.  See the $load_by parameter.
- * @param string $load_by (optional default=id) id for loading the product by id, name for loading by name, and slug for loading by slug
+ * @param $load_by (optional default=id) id for loading the product by id, name for loading by name, and slug for loading by slug
  * @return Product a product object, false on failure
  **/
 function shopp_product ( $product = false, $load_by = 'id' ) {
@@ -639,7 +639,7 @@ function shopp_product_publish ( $product = false, $flag = false, $datetime = fa
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product product id to load
+ * @param $product product id to load
  * @return array array of product specs, bool false on failure
  **/
 function shopp_product_specs ( $product = false ) {
@@ -663,7 +663,7 @@ function shopp_product_specs ( $product = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product the product id to get the variants for
+ * @param $product the product id to get the variants for
  * @return array of variant ShoppPrice objects, empty array if no variants, false on error
  **/
 function shopp_product_variants ( $product = false, $load_by = 'id' ) {
@@ -692,7 +692,7 @@ function shopp_product_variants ( $product = false, $load_by = 'id' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product the product id to get the addons for
+ * @param $product the product id to get the addons for
  * @return array of addon ShoppPrice objects, empty array if no addons, false on error
  **/
 function shopp_product_addons ( $product = false, $load_by = 'id' ) {
@@ -738,7 +738,7 @@ function shopp_product_has_addon($product = false, $addon) {
  * @since 1.2
  *
  * @param mixed $variant the id of the variant, or array('product'=>int, 'option' => array('menu1name'=>'option', 'menu2name'=>'option') ) to specify variant by product id and option
- * @param string $pricetype (optional default:variant) product, variant, or addon
+ * @param $pricetype (optional default:variant) product, variant, or addon
  * @return ShoppPrice Price object or false on error
  **/
 function shopp_product_variant ( $variant = false, $pricetype = 'variant' ) {
@@ -850,7 +850,7 @@ function shopp_product_variant ( $variant = false, $pricetype = 'variant' ) {
  * @since 1.2
  *
  * @param ShoppPrice $Variant a product or variant Price object to create the item from.
- * @param int $quantity (optional default:1) quantity of the variant the Item object will represent
+ * @param $quantity (optional default:1) quantity of the variant the Item object will represent
  * @return Item|bool Item object on success, false on failure
  **/
 function shopp_product_variant_to_item ( $Variant, $quantity = 1 ) {
@@ -888,7 +888,7 @@ function shopp_product_addon ( $addon = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) product id of the product to retrieve the options for
+ * @param $product (required) product id of the product to retrieve the options for
  * @return array of options, false on error or non-variant product
  **/
 function shopp_product_variant_options ( $product = false ) {
@@ -925,7 +925,7 @@ function shopp_product_variant_options ( $product = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) product id of the product to retrieve the addon options for
+ * @param $product (required) product id of the product to retrieve the addon options for
  * @return array of options, false on error or product without addon options
  **/
 function shopp_product_addon_options ( $product = false ) {
@@ -965,7 +965,7 @@ function shopp_product_addon_options ( $product = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) Product id to add the product categories to.
+ * @param $product (required) Product id to add the product categories to.
  * @param array $categories array of integer category term ids to add the product to.  Names are not unique.
  * @return bool true for success, false otherwise
  **/
@@ -979,7 +979,7 @@ function shopp_product_add_categories ( $product = false, $categories = array() 
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) Product id to add the product tags to.
+ * @param $product (required) Product id to add the product tags to.
  * @param array $tags array of tags/(tag ids) to add to the product
  * @return bool true for success, false otherwise
  **/
@@ -993,10 +993,10 @@ function shopp_product_add_tags ( $product = false, $tags = array() ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) the product id to add/set the terms to
+ * @param $product (required) the product id to add/set the terms to
  * @param array $terms (optional default:empty) list of terms to add/set
- * @param string $taxonomy (optional default:shopp_category) name of the taxonomy to use
- * @param string $behavior (optional default:append) append to add the terms, else the terms will override what is currently set for the taxonomy
+ * @param $taxonomy (optional default:shopp_category) name of the taxonomy to use
+ * @param $behavior (optional default:append) append to add the terms, else the terms will override what is currently set for the taxonomy
  * @return bool true on success, false on failure
  **/
 function shopp_product_add_terms ( $product = false, $terms = array(), $taxonomy = 'shopp_category', $behavior = 'append' ) {
@@ -1031,7 +1031,7 @@ function shopp_product_add_terms ( $product = false, $terms = array(), $taxonomy
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) the product id to add the specs to.
+ * @param $product (required) the product id to add the specs to.
  * @param array $specs (required) array of name/value pairs to add to the product
  * @return bool true on success, false on failure
  **/
@@ -1054,9 +1054,9 @@ function shopp_product_set_specs ( $product = false, $specs = array() ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) the product id to set the spec on.
- * @param string $name (required) the name of the spec
- * @param string $value the value of the spec
+ * @param $product (required) the product id to set the spec on.
+ * @param $name (required) the name of the spec
+ * @param $value the value of the spec
  * @return bool true on success, false on failure
  **/
 function shopp_product_set_spec ( $product = false, $name = '', $value = '' ) {
@@ -1083,8 +1083,8 @@ function shopp_product_set_spec ( $product = false, $name = '', $value = '' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) the product id.
- * @param string $name (required) the name of the spec to remove.
+ * @param $product (required) the product id.
+ * @param $name (required) the name of the spec to remove.
  * @return bool true on success, false on failure
  **/
 function shopp_product_rmv_spec ( $product = false, $name = '' ) {
@@ -1113,7 +1113,7 @@ function shopp_product_rmv_spec ( $product = false, $name = '' ) {
  *
  * @param int|ShoppPrice $variant (required) Either the id of the variant/addon/product price line, or the Price object. If passed a Price object, the modified object is returned, but not saved.
  * @param array $data (required) the data array used to configure the variant. See example below.
- * @param string $context (optional default:variant) set product, addon, or variant context
+ * @param $context (optional default:variant) set product, addon, or variant context
  * @return bool|ShoppPrice false on failure, resulting Price object on success.
  **/
 function shopp_product_set_variant ( $variant = false, $data = array(), $context = 'variant' ) {
@@ -1286,7 +1286,7 @@ function shopp_product_set_addon ( $addon = false, $data = array() ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) the product id to set
+ * @param $product (required) the product id to set
  * @param bool $flag (optional default:false) true to set as featured, false to unset featured
  * @return bool true on success, false on failure
  **/
@@ -1312,7 +1312,7 @@ function shopp_product_set_featured ( $product = false, $flag = false ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) the product id
+ * @param $product (required) the product id
  * @param bool $flag (optional default:false) true to set separate packaging on the product, false to let default packaging take place
  * @return bool true on success, false on failure
  **/
@@ -1345,9 +1345,9 @@ function shopp_product_set_packaging ( $product = false, $flag = false ) {
  * @author John Dillick, Jonathan Davis
  * @since 1.2.6
  *
- * @param int $product (required) the product id
+ * @param $product (required) the product id
  * @param bool $flag True to set enable the order processing settings, false to disable order processing times
- * @param string $minimum (optional default:'') Set to the earliest possible processing time frame using the format described above
+ * @param $minimum (optional default:'') Set to the earliest possible processing time frame using the format described above
  * @return bool True on success, false on failure
  **/
 function shopp_product_set_processing ( $product, $flag, $minimum = '', $maximum = '' ) {
@@ -1389,7 +1389,7 @@ function shopp_product_set_processing ( $product, $flag, $minimum = '', $maximum
  * @author Jonathan Davis
  * @since 1.2.6
  *
- * @param int $product (required) the product id
+ * @param $product (required) the product id
  * @param bool $flag Set to true to enable the Exclude Taxes setting for the product, false to disable it
  * @return bool True on success, false on failure
  **/
@@ -1416,8 +1416,8 @@ function shopp_product_set_exclude_taxes ( $product, $flag ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) The Product id to set the type on.
- * @param string $type (optional default:N/A) The product price type, ex Shipped, Download, Virtual, Subscription.  N/A is a disabled priceline.
+ * @param $product (required) The Product id to set the type on.
+ * @param $type (optional default:N/A) The product price type, ex Shipped, Download, Virtual, Subscription.  N/A is a disabled priceline.
  * @return bool true on success, false on failure
  **/
 function shopp_product_set_type ( $product = false, $type = 'N/A' ) {
@@ -1444,7 +1444,7 @@ function shopp_product_set_type ( $product = false, $type = 'N/A' ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) The Product id to set the tax setting on.
+ * @param $product (required) The Product id to set the tax setting on.
  * @param bool $taxed true to tax variant, false to not tax
  * @return bool true on success, false on failure
  **/
@@ -1472,7 +1472,7 @@ function shopp_product_set_taxed ( $product = false, $taxed = true ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) The Product id to set the price on.
+ * @param $product (required) The Product id to set the price on.
  * @param float $price the price to be set
  * @return bool true on success, false on failure
  **/
@@ -1500,7 +1500,7 @@ function shopp_product_set_price ( $product = false, $price = 0.0 ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) The Product id to set the sale price on.
+ * @param $product (required) The Product id to set the sale price on.
  * @param bool $flag (optional default:false) true for on, false for off. Turns on or off the sale flag on the product.  If false, price is ignored.
  * @param float $price the price to be set
  * @return bool true on success, false on failure
@@ -1531,7 +1531,7 @@ function shopp_product_set_saleprice ( $product = false, $flag = false, $price =
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) The Product id to turn setup the shipping settings on.
+ * @param $product (required) The Product id to turn setup the shipping settings on.
  * @param bool $flag (optional default:false) true for on, false for off. Turns on or off the shipping charges on the product.  If false, settings are ignored.
  * @param array $settings array of shipping dimensions (weight => float, height => float, length => float, width => float)
  * @return bool true on success, false on failure
@@ -1562,7 +1562,7 @@ function shopp_product_set_shipping ( $product = false, $flag = false, $settings
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) The Product id to setup the inventory tracking on.
+ * @param $product (required) The Product id to setup the inventory tracking on.
  * @param bool $flag (optional default:false) true for on, false for off. Turns on or off the inventory tracking on the product.  If false, settings are ignored.
  * @param array $settings array of inventory settings (stock => int, sku => sting)
  * @return bool true on success, false on failure
@@ -1593,9 +1593,9 @@ function shopp_product_set_inventory ( $product = false, $flag = false, $setting
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) The Product id to set stock/stock level on, or the Price object to change.  If Price object is specified, the object will be returned, but not saved to the database.
- * @param int $stock (optional default=0) The stock number to adjust/set the level to.
- * @param string $action (optional default=adjust) 'adjust' to set the product stock without setting the stock level, 'restock' to set both the product stock and stock level
+ * @param $product (required) The Product id to set stock/stock level on, or the Price object to change.  If Price object is specified, the object will be returned, but not saved to the database.
+ * @param $stock (optional default=0) The stock number to adjust/set the level to.
+ * @param $action (optional default=adjust) 'adjust' to set the product stock without setting the stock level, 'restock' to set both the product stock and stock level
  * @return bool true on success, false on failure
  **/
 function shopp_product_set_stock ( $product = false, $stock = 0, $action = 'adjust' ) {
@@ -1624,7 +1624,7 @@ function shopp_product_set_stock ( $product = false, $stock = 0, $action = 'adju
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) The Product id to set donation settings on.
+ * @param $product (required) The Product id to set donation settings on.
  * @param array $settings (required) The array of settings (minimum => bool, variable => bool), to set price as minimum donation flag and variable donation amounts flag.
  * @return bool true on success, false on failure
  **/
@@ -1654,7 +1654,7 @@ function shopp_product_set_donation ( $product = false, $settings = array() ) {
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) The Product id to set subscription settings on.
+ * @param $product (required) The Product id to set subscription settings on.
  * @param array $settings (required) The array of settings. Specify any trial period pricing, and the define the billing cycle.
  * Example array( 	'trial' => array(	'price' => 0.00,	// the trial price
  * 										'cycle' => array (	'interval' => 30, // how many units of the period the trial lasts (day,week,month,year)
@@ -1695,7 +1695,7 @@ function shopp_product_set_subscription ( $product = false, $settings = array() 
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) The product id of the product that you wish to add the variant options to.
+ * @param $product (required) The product id of the product that you wish to add the variant options to.
  * @param array $options (Description...) A two dimensional array describing the options.
  * The outer array is keyed on the name of the option type (Color, Size, Gender, etc.)
  * The inner contains the corresponding option values.
@@ -1787,8 +1787,8 @@ function _optioncombinations ($combos=array(), $options, $menu = false, &$result
  * @since 1.2
  *
  * @param int/Price $variant (required) The priceline id to set the type on, or the Price object to change.  If Price object is specified, the object will be returned, but not saved to the database.
- * @param string $type (optional default:N/A) The product price type, ex Shipped, Download, Virtual, Subscription.  N/A is a disabled priceline.
- * @param string $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
+ * @param $type (optional default:N/A) The product price type, ex Shipped, Download, Virtual, Subscription.  N/A is a disabled priceline.
+ * @param $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
  * @return bool/Price false on failure, true if Price saved, else the modified Price object.
  **/
 function shopp_product_variant_set_type ( $variant = false, $type = 'N/A', $context = 'variant' ) {
@@ -1831,7 +1831,7 @@ function shopp_product_variant_set_type ( $variant = false, $type = 'N/A', $cont
  *
  * @param int/Price $variant (required) The priceline id to set the tax setting on, or the Price object to change.  If Price object is specified, the object will be returned, but not saved to the database.
  * @param bool $taxed true to tax variant, false to not tax
- * @param string $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
+ * @param $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
  * @return bool/Price false on failure, true if Price saved, else the modified Price object.
  **/
 function shopp_product_variant_set_taxed ( $variant = false, $taxed = true, $context = 'variant' ) {
@@ -1865,7 +1865,7 @@ function shopp_product_variant_set_taxed ( $variant = false, $taxed = true, $con
  *
  * @param int/Price $variant (required) The priceline id to set the price on, or the Price object to change.  If Price object is specified, the object will be returned, but not saved to the database.
  * @param float $price the price to be set
- * @param string $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
+ * @param $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
  * @return bool/Price false on failure, true if Price saved, else the modified Price object.
  **/
 function shopp_product_variant_set_price ( $variant = false, $price = 0.0, $context = 'variant' ) {
@@ -1906,7 +1906,7 @@ function shopp_product_variant_set_price ( $variant = false, $price = 0.0, $cont
  * @param int/Price $variant (required) The priceline id to set the sale price on, or the Price object to change.  If Price object is specified, the object will be returned, but not saved to the database.
  * @param bool $flag (optional default:false) true for on, false for off. Turns on or off the sale flag on the variant.  If false, price is ignored.
  * @param float $price the price to be set
- * @param string $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
+ * @param $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
  * @return bool/Price false on failure, true if Price saved, else the modified Price object.
  **/
 function shopp_product_variant_set_saleprice ( $variant = false, $flag = false, $price = 0.0, $context = 'variant' ) {
@@ -1952,7 +1952,7 @@ function shopp_product_variant_set_saleprice ( $variant = false, $flag = false, 
  * @param int/Price $variant (required) The priceline id to turn setup the shipping settings on, or the Price object to change.  If Price object is specified, the object will be returned, but not saved to the database.
  * @param bool $flag (optional default:false) true for on, false for off. Turns on or off the shipping charges on the variant.  If false, settings are ignored.
  * @param array $settings array of shipping dimensions (weight => float, height => float, length => float, width => float)
- * @param string $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
+ * @param $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
  * @return bool/Price false on failure, true if Price saved, else the modified Price object.
  **/
 function shopp_product_variant_set_shipping ( $variant = false, $flag = false, $settings = array(), $context = 'variant' ) {
@@ -2023,7 +2023,7 @@ function shopp_product_variant_set_shipping ( $variant = false, $flag = false, $
  * @param int/Price $variant (required) The priceline id to setup the inventory tracking on, or the Price object to change.  If Price object is specified, the object will be returned, but not saved to the database.
  * @param bool $flag (optional default:false) true for on, false for off. Turns on or off the inventory tracking on the variant.  If false, settings are ignored.
  * @param array $settings array of inventory settings (stock => int, sku => sting)
- * @param string $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
+ * @param $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
  * @return bool/Price false on failure, true if Price saved, else the modified Price object.
  **/
 function shopp_product_variant_set_inventory ( $variant = false, $flag = false, $settings = array(), $context = 'variant' ) {
@@ -2065,9 +2065,9 @@ function shopp_product_variant_set_inventory ( $variant = false, $flag = false, 
  * @since 1.2
  *
  * @param int/Price $variant (required) The priceline id to set stock/stock level on, or the Price object to change.  If Price object is specified, the object will be returned, but not saved to the database.
- * @param int $stock (optional default=0) The stock number to adjust/set the level to.
- * @param string $action (optional default=adjust) 'adjust' to set the variant stock without setting the stock level, 'restock' to set both the variant stock and stock level
- * @param string $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
+ * @param $stock (optional default=0) The stock number to adjust/set the level to.
+ * @param $action (optional default=adjust) 'adjust' to set the variant stock without setting the stock level, 'restock' to set both the variant stock and stock level
+ * @param $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
  * @return bool/Price false on failure, true if Price saved, else the modified Price object.
  **/
 function shopp_product_variant_set_stock ( $variant = false, $stock = 0, $action = 'adjust', $context = 'variant' ) {
@@ -2112,7 +2112,7 @@ function shopp_product_variant_set_stock ( $variant = false, $stock = 0, $action
  *
  * @param int/Price $variant (required) The priceline id to set donation settings on, or the Price object to change.  If Price object is specified, the object will be returned, but not saved to the database.
  * @param array $settings (required) The array of settings (minimum => bool, variable => bool), to set price as minimum donation flag and variable donation amounts flag.
- * @param string $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
+ * @param $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
  * @return bool/Price false on failure, true if Price saved, else the modified Price object.
  **/
 function shopp_product_variant_set_donation ( $variant = false, $settings = array(), $context = 'variant' ) {
@@ -2176,7 +2176,7 @@ function shopp_product_variant_set_donation ( $variant = false, $settings = arra
  * 															 )
  * 										)
  * 				)
- * @param string $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
+ * @param $context (optional default:variant) enforces the priceline is a 'product','variant', or 'addon'
  * @return bool/Price false on failure, true if Price saved, else the modified Price object.
  **/
 function shopp_product_variant_set_subscription ( $variant = false, $settings = array(), $context = 'variant' ) {
@@ -2264,7 +2264,7 @@ function shopp_product_variant_set_subscription ( $variant = false, $settings = 
  * @author John Dillick
  * @since 1.2
  *
- * @param int $product (required) The product id of the product that you wish to add the addon options to.
+ * @param $product (required) The product id of the product that you wish to add the addon options to.
  * @param array $options (Description...) A two dimensional array describing the addon options.
  * The outer array is keyed on the name of the option type (Framing, Matting, Glass, etc.)
  * The inner contains the corresponding option values.
@@ -2341,8 +2341,8 @@ function shopp_product_set_addon_options ( $product = false, $options = array(),
  * @since 1.2
  *
  * @param int/Price $addon (required) The priceline id to set the type on, or the Price object to change.  If Price object is specified, the object will be returned, but not saved to the database.
- * @param string $type (optional default:N/A) The product price type, ex Shipped, Download, Virtual, Subscription.  N/A is a disabled priceline.
- * @param string $context (optional default:addon) enforces the priceline is a 'product','variant', or 'addon'
+ * @param $type (optional default:N/A) The product price type, ex Shipped, Download, Virtual, Subscription.  N/A is a disabled priceline.
+ * @param $context (optional default:addon) enforces the priceline is a 'product','variant', or 'addon'
  **/
 function shopp_product_addon_set_type ( $addon = false, $type = 'N/A' ) {
 	return shopp_product_variant_set_type (  $addon, $type, 'addon' );
@@ -2418,8 +2418,8 @@ function shopp_product_addon_set_shipping ( $addon = false, $flag = false, $sett
  * @since 1.2
  *
  * @param int/Price $addon (required) The priceline id to set stock/stock level on, or the Price object to change.  If Price object is specified, the object will be returned, but not saved to the database.
- * @param int $stock (optional default=0) The stock number to adjust/set the level to.
- * @param string $action (optional default=adjust) 'adjust' to set the addon stock without setting the stock level, 'restock' to set both the addon stock and stock level
+ * @param $stock (optional default=0) The stock number to adjust/set the level to.
+ * @param $action (optional default=adjust) 'adjust' to set the addon stock without setting the stock level, 'restock' to set both the addon stock and stock level
  * @return bool/Price false on failure, true if Price saved, else the modified Price object.
  **/
 function shopp_product_addon_set_stock ( $addon = false, $stock = 0, $action = 'adjust' ) {

@@ -41,8 +41,8 @@ class DBStorage extends StorageModule implements StorageEngine {
 	 * @since 1.1
 	 *
 	 * @param Asset $asset Asset object the data is associated with
-	 * @param string $data Binary data or path to the file to be saved
-	 * @param string $type (optional) Type of data provided - binary (default) or file
+	 * @param $data Binary data or path to the file to be saved
+	 * @param $type (optional) Type of data provided - binary (default) or file
 	 * @return string|boolean A URI for the resource or false if failed
 	 **/
 	public function save ( $asset, $data, $type = 'binary' ) {
@@ -69,8 +69,8 @@ class DBStorage extends StorageModule implements StorageEngine {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $uri The URI for the resource
-	 * @param string $filename (optional) File name of the asset
+	 * @param $uri The URI for the resource
+	 * @param $filename (optional) File name of the asset
 	 * @return array A named list of the stored file size and mimetype
 	 **/
 	public function meta ( $uri = false, $filename = false ) {
@@ -91,7 +91,7 @@ class DBStorage extends StorageModule implements StorageEngine {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $uri The URI for the resource
+	 * @param $uri The URI for the resource
 	 * @return boolean True if the resource exists
 	 **/
 	public function exists ( $uri ) {
@@ -106,7 +106,7 @@ class DBStorage extends StorageModule implements StorageEngine {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $uri The URI for the resource
+	 * @param $uri The URI for the resource
 	 * @return string Binary data
 	 **/
 	public function load ( $uri ) {

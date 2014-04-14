@@ -21,7 +21,7 @@ defined( 'WPINC' ) || header( 'HTTP/1.1 403' ) & exit; // Prevent direct access
  * @author Jonathan Davis
  * @since 1.3
  *
- * @param string $request A request name
+ * @param $request A request name
  * @param callable $callback The callback handler (function/method) to use for processing the request
  * @param array $capabilities The capabilities required by the request
  * @return boolean

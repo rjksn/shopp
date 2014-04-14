@@ -99,10 +99,10 @@ class sDB extends SingletonFramework {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $user The database username
-	 * @param string $password The database password
-	 * @param string $database The database name
-	 * @param string $host The host name of the server
+	 * @param $user The database username
+	 * @param $password The database password
+	 * @param $database The database name
+	 * @param $host The host name of the server
 	 * @return void
 	 **/
 	public function connect ($user, $password, $database, $host) {
@@ -137,7 +137,7 @@ class sDB extends SingletonFramework {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $database The database name
+	 * @param $database The database name
 	 * @return void
 	 **/
 	public function db ( $database ) {
@@ -165,7 +165,7 @@ class sDB extends SingletonFramework {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $datetime A MySQL date time string
+	 * @param $datetime A MySQL date time string
 	 * @return int A timestamp number usable by PHP date functions
 	 **/
 	public static function mktime ( $datetime ) {
@@ -181,7 +181,7 @@ class sDB extends SingletonFramework {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param int $timestamp A timestamp number
+	 * @param $timestamp A timestamp number
 	 * @return string An SQL datetime formatted string
 	 **/
 	public static function mkdatetime ( $timestamp ) {
@@ -313,8 +313,8 @@ class sDB extends SingletonFramework {
 	 * @since 1.0
 	 * @version 1.2
 	 *
-	 * @param string $query The SQL query to send
-	 * @param string $format (optional) Supports 'auto' (default), 'object', or 'array'
+	 * @param $query The SQL query to send
+	 * @param $format (optional) Supports 'auto' (default), 'object', or 'array'
  	 * @return array|object The query results as an object or array of result rows
 	 **/
 	public static function query ( $query, $format = 'auto', $callback = false ) {
@@ -439,7 +439,7 @@ class sDB extends SingletonFramework {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $type The SQL data type
+	 * @param $type The SQL data type
 	 * @return string|boolean The primitive datatype or false if not found
 	 **/
 	public static function datatype ( $type ) {
@@ -538,8 +538,8 @@ class sDB extends SingletonFramework {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $table The table to read column data from
-	 * @param string $column The column name to inspect
+	 * @param $table The table to read column data from
+	 * @param $column The column name to inspect
 	 * @return array List of values
 	 **/
 	public static function column_options ( $table = null, $column = null ) {
@@ -559,7 +559,7 @@ class sDB extends SingletonFramework {
 	 *
 	 * @author Jonathan Davis
 	 * @since 1.0
-	 * @param string $queries Long string of multiple queries
+	 * @param $queries Long string of multiple queries
 	 * @return boolean
 	 **/
 	public function loaddata ( $queries ) {
@@ -594,7 +594,7 @@ class sDB extends SingletonFramework {
 	 *
 	 * @param array $records The record set
 	 * @param object $record The record to process
-	 * @param string $column The column name to use as the key for record
+	 * @param $column The column name to use as the key for record
 	 * @param boolean $collate (optional) Set to true to collate the records (defaults to false)
 	 * @return void
 	 **/
@@ -618,8 +618,8 @@ class sDB extends SingletonFramework {
 	 *
 	 * @param array $records The record set
 	 * @param object $record The record to process
-	 * @param string $column The column name to use as the value for the record
-	 * @param string $index The index column name to use as the key for record
+	 * @param $column The column name to use as the value for the record
+	 * @param $index The index column name to use as the key for record
 	 * @param boolean $collate (optional) Set to true to collate the records (defaults to false)
 	 * @return void
 	 **/
@@ -693,8 +693,8 @@ abstract class ShoppDatabaseObject implements Iterator {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $table The base table name (without prefixes)
-	 * @param string $key (optional) The column name of the primary key
+	 * @param $table The base table name (without prefixes)
+	 * @param $key (optional) The column name of the primary key
 	 * @return boolean True if init was successful, otherwise false
 	 **/
 	public function init ( $table, $key = null ) {
@@ -813,8 +813,8 @@ abstract class ShoppDatabaseObject implements Iterator {
 	 *
 	 * @param array $records A reference to the loaded record set
 	 * @param object $record A reference to the individual record to process
-	 * @param string $DatabaseObject (optional) The ShoppDatabaseObject class name to convert the record to
-	 * @param string $index (optional) The record column to use as the index in the record set
+	 * @param $DatabaseObject (optional) The ShoppDatabaseObject class name to convert the record to
+	 * @param $index (optional) The record column to use as the index in the record set
 	 * @param boolean $collate (optional) Flag to collate the records (records with matching index columns are collected into a nested array on the index in the set)
 	 * @param object $record Result record data object
 	 * @return void
@@ -848,8 +848,8 @@ abstract class ShoppDatabaseObject implements Iterator {
 	 * @param array $records A reference to the loaded record set
 	 * @param object $record Result record data object
 	 * @param array $objects
-	 * @param string $id
-	 * @param string $property
+	 * @param $id
+	 * @param $property
 	 * @param boolean $collate
 	 * @param boolean $merge
 	 * @return void
@@ -899,7 +899,7 @@ abstract class ShoppDatabaseObject implements Iterator {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $table The base table name
+	 * @param $table The base table name
 	 * @return string The full, prefixed table name
 	 **/
 	public static function tablename ( $table = '' ) {
@@ -1098,7 +1098,7 @@ abstract class ShoppDatabaseObject implements Iterator {
 	 * @since 1.0
 	 *
 	 * @param object $data The source object or array to copy from
-	 * @param string $prefix (optional) A property prefix
+	 * @param $prefix (optional) A property prefix
 	 * @param array $ignores (optional) List of property names to ignore copying from
 	 * @return void
 	 **/
@@ -1137,11 +1137,11 @@ abstract class ShoppDatabaseObject implements Iterator {
 	 * @version 1.2
 	 * @deprecated Retained for compatibility
 	 *
-	 * @param string $property The property to handle
+	 * @param $property The property to handle
 	 * @param array $options (optional) The tag options to process
 	 * @return mixed
 	 **/
-	public function tag ( string $property, array $options = array() ) {
+	public function tag ( $property, array $options = array() ) {
 		$options = array_merge( array('return' => true), shopp_parse_options($options) );
 		return shopp($this, $property, $options);
 	}
@@ -1189,7 +1189,7 @@ abstract class ShoppDatabaseObject implements Iterator {
 	 * @author Jonathan Davis
 	 * @since 1.2
 	 *
-	 * @param string $property The name of the property to check
+	 * @param $property The name of the property to check
 	 * @return boolean True if ignored, false otherwise
 	 **/
 	private function _ignored ($property) {
@@ -1248,7 +1248,7 @@ class WPDatabaseObject extends ShoppDatabaseObject {
 	 * @author Jonathan Davis
 	 * @since 1.0
 	 *
-	 * @param string $table The base table name
+	 * @param $table The base table name
 	 * @return string The full, prefixed table name
 	 **/
 	static function tablename ($table = '') {

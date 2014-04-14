@@ -186,10 +186,10 @@ function ShoppPages () {
  *
  * @since 1.3
  *
- * @param string $pagename The name of the ShoppPage to retrieve
+ * @param $pagename The name of the ShoppPage to retrieve
  * @return ShoppPage The requested ShoppPage if found, false otherwise
  **/
-function shopp_get_page ( string $pagename ) {
+function shopp_get_page ( $pagename ) {
 	return ShoppPages()->get($pagename);
 }
 
@@ -198,10 +198,10 @@ function shopp_get_page ( string $pagename ) {
  *
  * @since 1.3
  *
- * @param string $classname The class name of the new type of ShoppPage
+ * @param $classname The class name of the new type of ShoppPage
  * @return void
  **/
-function shopp_register_page ( string $classname ) {
+function shopp_register_page ( $classname ) {
 	ShoppPages()->register($classname);
 }
 
@@ -398,7 +398,7 @@ function is_shopp_search ( $wp_query = false ) {
  * @author Jonathan Davis, John Dillick
  * @since 1.0
  *
- * @param string $page (optional) System page name ID for the correct ShoppStorefront page {@see ShoppPages class}
+ * @param $page (optional) System page name ID for the correct ShoppStorefront page {@see ShoppPages class}
  * @param WP_Query $wp_query (optional) will use the global wp_query by default if false, or the provided WP_Query object
  * @return boolean
  **/
@@ -430,7 +430,7 @@ function is_shopp_page ( $page = false, $wp_query = false ) {
  * @since 1.2.1
  *
  * @param WP_Query $wp_query (optional) will use the global wp_query by default if false, or the WP_Query object to evaluation
- * @param string $page (optional) System page name ID for the correct ShoppStorefront page {@see ShoppPages class}
+ * @param $page (optional) System page name ID for the correct ShoppStorefront page {@see ShoppPages class}
  * @return bool
  **/
 function is_shopp_query ( $wp_query = false, $page = false ) {
@@ -543,8 +543,8 @@ function is_single_product ( $wp_query = false ) {
  *
  * @since 1.3
  *
- * @param string $message The error message to add
- * @param int $level The error type (SHOPP_ERR, SHOPP_ADMIN_ERR)
+ * @param $message The error message to add
+ * @param $level The error type (SHOPP_ERR, SHOPP_ADMIN_ERR)
  * @return ShoppError The ShoppError object
  **/
 function shopp_add_error ( $message, $level = null ) {
@@ -557,7 +557,7 @@ function shopp_add_error ( $message, $level = null ) {
  *
  * @since 1.3
  *
- * @param string $message The error message to add
+ * @param $message The error message to add
  * @return ShoppError The ShoppError object
  **/
 function shopp_add_notice ( $message ) {
@@ -569,7 +569,7 @@ function shopp_add_notice ( $message ) {
  *
  * @since 1.3
  *
- * @param string $message The error message to add
+ * @param $message The error message to add
  * @param boolean $backtrace Include the call stack in the logged message
  * @return ShoppError The ShoppError object
  **/

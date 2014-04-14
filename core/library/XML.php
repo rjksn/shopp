@@ -54,7 +54,7 @@ class xmlQuery {
 	 * @author Jonathan Davis, leoSr
 	 * @since 1.1
 	 *
-	 * @param string $markup String of XML markup
+	 * @param $markup String of XML markup
 	 * @return boolean
 	 **/
 	function parse (&$markup) {
@@ -107,7 +107,7 @@ class xmlQuery {
 	 * @author Jonathan Davis
 	 * @since 1.1.6
 	 *
-	 * @param string $markup The markup to encode/decode
+	 * @param $markup The markup to encode/decode
 	 * @param boolean $encode True to encode the markup, omit to decode (default)
 	 * @return string The encoded/decoded markup
 	 **/
@@ -216,9 +216,9 @@ class xmlQuery {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $name The tag name of the new element
+	 * @param $name The tag name of the new element
 	 * @param array $attrs (optional) An associative array of attribute name/value pairs
-	 * @param string $content (optional) String contents of the element
+	 * @param $content (optional) String contents of the element
 	 * @param array $children (optional) Child xmlQuery::element generated elements
 	 * @return array The structured element
 	 **/
@@ -256,7 +256,7 @@ class xmlQuery {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param int $index (optional) Element number to retreive
+	 * @param $index (optional) Element number to retreive
 	 * @return xmlQuery The specified element
 	 **/
 	function get ($index=0) {
@@ -331,7 +331,7 @@ class xmlQuery {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $attr (optional) Attribute to retrieve
+	 * @param $attr (optional) Attribute to retrieve
 	 * @param mixed $tag (optional) Tag to find
 	 * @return string|array A single attribute value or an array of attribute values
 	 **/
@@ -462,7 +462,7 @@ class xmlQuery {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $tag The tag name to search for
+	 * @param $tag The tag name to search for
 	 * @param array $attributes (optional) The attribute criteria
 	 * @param array $dom (optional) The DOM to search
 	 * @param boolean $recursive (optional) Turn on/off recursive searching
@@ -537,7 +537,7 @@ class xmlQuery {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $query Formatted query string
+	 * @param $query Formatted query string
 	 * @return array Structured query usable by find()
 	 **/
 	function parsequery ($query) {
@@ -598,9 +598,9 @@ class xmlQuery {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $source The source to compare
-	 * @param string $op The operation to use
-	 * @param string $search The search string
+	 * @param $source The source to compare
+	 * @param $op The operation to use
+	 * @param $search The search string
 	 * @return boolean
 	 **/
 	private function match ($source,$op,$search) {
@@ -621,7 +621,7 @@ class xmlQuery {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $key Value of array index
+	 * @param $key Value of array index
 	 * @return boolean
 	 **/
 	private function _filter_odd ($key) {
@@ -634,7 +634,7 @@ class xmlQuery {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $key Value of array index
+	 * @param $key Value of array index
 	 * @return boolean
 	 **/
 	private function _filter_even ($key) {
@@ -647,9 +647,9 @@ class xmlQuery {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $key Value of array index
-	 * @param string $value Value of array entry
-	 * @param string $filter The comparison amount
+	 * @param $key Value of array index
+	 * @param $value Value of array entry
+	 * @param $filter The comparison amount
 	 * @return boolean
 	 **/
 	private function _filter_gt ($key,$value,$filter) {
@@ -662,9 +662,9 @@ class xmlQuery {
 	 * @author Jonathan Davis
 	 * @since 1.1
 	 *
-	 * @param string $key Value of array index
-	 * @param string $value Value of array entry
-	 * @param string $filter The comparison amount
+	 * @param $key Value of array index
+	 * @param $value Value of array entry
+	 * @param $filter The comparison amount
 	 * @return boolean
 	 **/
 	private function _filter_lt ($key,$value,$filter) {
@@ -679,7 +679,7 @@ class xmlQuery {
 	 *
 	 * @param array $array The source array
 	 * @param array $callback The callback function name
-	 * @param string $filter The filter amount
+	 * @param $filter The filter amount
 	 * @return array The filtered array
 	 **/
 	private static function array_key_filter ($array, $callback, $filter=false) {
